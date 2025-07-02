@@ -1,0 +1,49 @@
+#use_frameworks!
+install! 'cocoapods', :deterministic_uuids => false
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '11.0'
+
+# 定义阿里云播放器 SDK 及相关组件
+def alivc_sdk_pods
+  # 播放器 SDK 版本（建议保持与官方最新版本一致）
+  # 参考更新日志：https://help.aliyun.com/zh/vod/developer-reference/release-notes-for-apsaravideo-player-sdk-for-ios
+  pod 'AliPlayerSDK_iOS', '~> 7.2.0'
+  
+  # API 示例模块，依赖本地路径下的 podspec 文件
+  pod "API-Example/AliPlayerSDK_iOS", :path => "../API-Example/"
+  
+  # 如需集成其他 SDK（如 AliVCSDK_Standard），取消注释并按需添加
+  # pod "API-Example/AliVCSDK_Standard", :path => "../API-Example/"
+end
+
+# 第三方依赖库配置
+def third_party_pods
+  # 可自定义第三方库版本
+end
+
+# 主应用 Target
+target 'SwiftExample' do
+  
+  third_party_pods
+  
+  alivc_sdk_pods
+  
+  # Common 基础模块
+  pod "Common", :path => "../API-Example/Common"
+  
+  # 主 App 模块
+  pod "App", :path => "../API-Example/App"
+  
+  # BasicPlayback 模块
+  pod "BasicPlayback", :path => "../API-Example/BasicPlayback"
+end
+
+# 安装后配置
+post_install do |installer|
+    installer.pods_project.build_configurations.each do |config|
+        config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
+        config.build_settings['CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER'] = 'NO'
+        config.build_settings['ENABLE_USER_SCRIPT_SANDBOXING'] = 'NO'
+    end
+end

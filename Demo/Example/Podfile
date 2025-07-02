@@ -1,0 +1,36 @@
+#use_frameworks!
+install! 'cocoapods', :deterministic_uuids => false
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '9.0'
+
+def aliyun_uicom
+  
+    # 播放器SDK及版本，建议使用最新版本，详情参考官网：https://help.aliyun.com/zh/vod/developer-reference/release-notes-for-apsaravideo-player-sdk-for-ios
+    pod 'AliPlayerSDK_iOS', '~> 7.4.0'
+    
+    pod "AUIPlayer/All", :path => "../"
+    pod "AUIPlayer/AliPlayerSDK_iOS", :path => "../"
+    
+    pod "AUIFoundation/All", :path => "../AUIBaseKits/AUIFoundation"
+    pod 'SDWebImage', '5.18.1'
+
+end
+
+def common_demo_pods
+end
+
+
+target 'AlivcPlayerDemo' do
+  
+    common_demo_pods
+    aliyun_uicom
+
+end
+
+post_install do |installer|
+    installer.pods_project.build_configurations.each do |config|
+        config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
+        config.build_settings['CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER'] = 'NO'
+    end
+end

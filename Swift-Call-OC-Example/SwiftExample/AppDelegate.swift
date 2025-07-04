@@ -10,6 +10,9 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    /// 业务来源信息
+    static let extraDataApiExample = "{\"scene\":\"api-example\",\"platform\":\"ios\",\"style\":\"swift-call-oc\"}";
+
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -44,6 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         window?.makeKeyAndVisible()
+
+        // 设置业务来源信息
+        AliPlayerGlobalSettings.setOption(SET_EXTRA_DATA, value: AppDelegate.extraDataApiExample);
+        // 可选：如有其他全局初始化操作，请在此处添加
         return true
     }
 

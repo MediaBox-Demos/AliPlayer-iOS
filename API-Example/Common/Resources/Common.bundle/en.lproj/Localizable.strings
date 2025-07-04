@@ -1,0 +1,54 @@
+/*
+  Localizable.strings
+  Common
+
+  Created by keria on 2025/6/4.
+  Unified localization strings for all modules
+  
+*/
+
+// App Module Strings
+// Menu Headers
+"app.menu.basic_features" = "Basic Features";
+"app.menu.advanced_features" = "Advanced Features";
+
+// Basic Features
+"app.basic.playback.title" = "BasicPlayback";
+"app.basic.playback.description" = "Demonstrate basic functionality usage";
+"app.basic.rts.title" = "RTSLiveStream";
+"app.basic.rts.description" = "Demonstrate RTS Low-Latency Live Streaming usage";
+
+// Advanced Features
+"app.advanced.thumbnail.title" = "Thumbnail";
+"app.advanced.thumbnail.description" = "Demonstrate Thumbnail usage";
+"app.advanced.externalSubtitle.title" = "ExternalSubtitle";
+"app.advanced.externalSubtitle.description" = "Demonstrate ExternalSubtitle usage";
+"app.advanced.preload.title" = "Preload(URL)";
+"app.advanced.preload.description" = "Demonstrate Preload(URL) usage";
+"app.advanced.pip.title" = "Picture in Picture";
+"app.advanced.pip.description" = "Demonstrate PictureInPicture usage";
+"app.advanced.flow.title" = "Float Window";
+"app.advanced.flow.description" = "Demonstrate Float-Window usage";
+"app.advanced.multi.title" = "Multi-Resolution";
+"app.advanced.multi.description" = "Demonstrate Multi-Resolution usage";
+"app.advanced.downloader.title" = "Downloader";
+"app.advanced.downloader.description" = "Demonstrate Downloader usage";
+
+// BasicPlayback Module Strings
+// View Controller
+"basicplayback.title" = "Basic Playback Demo";
+"rtsLiveStream.title" = "RTS LiveStream Demo";
+"thumbnail.title" = "Thumbnail Demo";
+"externalSubtitle.title" = "ExternalSubtitle Demo";
+"preload.title" = "Preload(URL) Demo";
+
+// Common Module Strings
+"pip.btn.title" = "Activate PiP";
+"flow.btn.title" = "Open Floating Window";
+
+// Common Messages
+"set_stream_url_first.tip" = "Please set the live streaming URL first";
+"playback_not_implemented" = "Playback function not implemented";
+"preload_complete" = "Preloading complete. It can improve playback startup speed~";
+"preload_canceled" = "Preloading canceled";
+"preload_error" = "Preloading error";

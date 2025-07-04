@@ -1,0 +1,55 @@
+/*
+  Localizable.strings
+  Common
+
+  Created by keria on 2025/6/4.
+  Unified localization strings for all modules
+  
+*/
+
+// App Module Strings
+// Menu Headers
+"app.menu.basic_features" = "基础功能";
+"app.menu.advanced_features" = "进阶功能";
+
+// Basic Features
+"app.basic.playback.title" = "基础演示";
+"app.basic.playback.description" = "展示基础功能的使用方法";
+"app.basic.rts.title" = "RTS演示";
+"app.basic.rts.description" = "展示RTS低延迟直播组件的使用方法";
+
+// Advanced Features
+"app.advanced.thumbnail.title" = "缩略图演示";
+"app.advanced.thumbnail.description" = "展示缩略图的使用方法";
+"app.advanced.externalSubtitle.title" = "外挂字幕演示";
+"app.advanced.externalSubtitle.description" = "展示外挂字幕的使用方法";
+"app.advanced.preload.title" = "预加载(URL)演示";
+"app.advanced.preload.description" = "展示预加载(URL)的使用方法";
+"app.advanced.pip.title" = "画中画演示";
+"app.advanced.pip.description" = "展示画中画的使用方法";
+"app.advanced.flow.title" = "悬浮窗演示";
+"app.advanced.flow.description" = "展示悬浮窗的使用方法";
+"app.advanced.multi.title" = "多清晰度切换演示";
+"app.advanced.multi.description" = "展示多清晰度切换的使用方法";
+"app.advanced.downloader.title" = "安全下载演示";
+"app.advanced.downloader.description" = "展示安全下载的使用方法";
+
+// BasicPlayback Module Strings
+// View Controller
+"basicplayback.title" = "基础播放演示";
+"rtsLiveStream.title" = "RTS直播流演示";
+"thumbnail.title" = "缩略图演示";
+"externalSubtitle.title" = "外挂字幕演示";
+"preload.title" = "预加载(URL)演示";
+
+// Common Module Strings
+"pip.btn.title" = "唤出画中画";
+"flow.btn.title" = "唤出悬浮窗";
+
+// 通用提示信息
+"set_stream_url_first.tip" = "请先设置直播URL";
+"playback_not_implemented" = "播放功能未实现";
+"preload_complete" = "预加载完成，可提升起播速度~";
+"preload_canceled" = "预加载取消";
+"preload_error" = "预加载出错";
+

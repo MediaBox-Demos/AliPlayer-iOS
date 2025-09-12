@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // Complete schema URLs
 extern NSString *const kSchemaBasicPlayback;
+extern NSString *const kSchemaBasicLiveStream;
 extern NSString *const kSchemaRtsLiveStream;
 
 extern NSString *const kSchemaThumbnailStream;
@@ -67,6 +68,10 @@ extern NSString *const kModuleInfoKeyCategory;
 
 // URL of the sample video file
 extern NSString *const kSampleVideoURL;
+// URL of the sample livestream video file
+extern NSString *const kSampleLiveStreamVideoURL;
+// URL of the sample switch livestream video file
+extern NSString *const kSampleSwitchLiveStreamVideoURL;
 // URL of the RTS video file
 extern NSString *const kRTSLiveStreamURL;
 // URL of the MultiResolution

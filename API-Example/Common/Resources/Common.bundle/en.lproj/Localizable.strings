@@ -37,6 +37,8 @@
 // BasicPlayback Module Strings
 // View Controller
 "basicplayback.title" = "Basic Playback Demo";
+"basic.livestream.title" = "BasicLiveStream";
+"basic.livestream.description" = "Demonstrates how to use Alibaba Cloud Player to achieve basic playback of live streams";
 "rtsLiveStream.title" = "RTS LiveStream Demo";
 "thumbnail.title" = "Thumbnail Demo";
 "externalSubtitle.title" = "ExternalSubtitle Demo";
@@ -49,6 +51,17 @@
 // Common Messages
 "set_stream_url_first.tip" = "Please set the live streaming URL first";
 "playback_not_implemented" = "Playback function not implemented";
-"preload_complete" = "Preloading complete. It can improve playback startup speed~";
-"preload_canceled" = "Preloading canceled";
-"preload_error" = "Preloading error";
+"preload.completed.title" = "Preloading complete. It can improve playback startup speed~";
+"preload.canceled.title" = "Preloading canceled";
+"preload.error.title" = "Preloading error";
+"app.common.ok" = "OK";
+"app.common.start" = "Start";
+"app.common.pause" = "Pause";
+"app.common.resume" = "Resume";
+"app.common.cancel" = "Cancel";
+"preload.onCompleted" = "Preload completed - TaskId: %@, UrlOrVid: %@";
+"preload.onCanceled" = "Preload cancel - TaskId: %@, UrlOrVid: %@";
+"preload.onError" = "Preload error - TaskId: %@, UrlOrVid: %@, Error: %@";
+"basiclivestream.switch.resolution" = "Switch resolution";
+"basiclivestream.onSwitchedSuccess" = "[SwitchStream]: switch success, url=%@";
+"basiclivestream.onSwitchedFail" = "[SwitchStream]: switch failed: %@, 错误码: %ld, 错误信息: %@";

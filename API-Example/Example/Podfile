@@ -8,7 +8,18 @@ platform :ios, '9.0'
 def alivc_sdk_pods
   # 播放器 SDK 版本（建议保持与官方最新版本一致）
   # 参考更新日志：https://help.aliyun.com/zh/vod/developer-reference/release-notes-for-apsaravideo-player-sdk-for-ios
-  pod 'AliPlayerSDK_iOS', '~> 7.4.0'
+  player_sdk_version = '7.7.0'
+  
+  # Rts低延时直播组件版本（建议保持与官方最新版本一致）
+  # 您可以参考官网获取 RTS SDK 最新版本：https://help.aliyun.com/zh/live/pull-streams-over-rts-on-ios
+  rts_sdk_version = '7.8.0'
+  
+  # 播放器SDK
+  pod 'AliPlayerSDK_iOS', player_sdk_version
+  # 播放器与Rts低延时直播组件的桥接层（AlivcArtc），版本号需要与播放器一致，需要和 Rts低延时直播组件 一起集成
+  pod 'AliPlayerSDK_iOS_ARTC', player_sdk_version
+  # Rts低延时直播组件
+  pod 'RtsSDK', rts_sdk_version
   
   # API 示例模块，依赖本地路径下的 podspec 文件
   pod "API-Example/AliPlayerSDK_iOS", :path => "../"
@@ -37,6 +48,9 @@ target 'Example' do
   
   # BasicPlayback 模块
   pod "BasicPlayback", :path => "../BasicPlayback"
+  
+  # BasicLiveStream 模块
+  pod "BasicLiveStream", :path => "../BasicLiveStream"
 
   # RtsLiveStream 模块
   pod "RtsLiveStream", :path => "../RtsLiveStream"

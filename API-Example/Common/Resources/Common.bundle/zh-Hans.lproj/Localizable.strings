@@ -15,6 +15,8 @@
 // Basic Features
 "app.basic.playback.title" = "基础演示";
 "app.basic.playback.description" = "展示基础功能的使用方法";
+"app.basic.livestream.title" = "基础直播";
+"app.basic.livestream.description" = "演示如何使用阿里云播放器实现直播流基础播放";
 "app.basic.rts.title" = "RTS演示";
 "app.basic.rts.description" = "展示RTS低延迟直播组件的使用方法";
 
@@ -49,7 +51,18 @@
 // 通用提示信息
 "set_stream_url_first.tip" = "请先设置直播URL";
 "playback_not_implemented" = "播放功能未实现";
-"preload_complete" = "预加载完成，可提升起播速度~";
-"preload_canceled" = "预加载取消";
-"preload_error" = "预加载出错";
+"preload.completed.title" = "预加载完成，可提升起播速度~";
+"preload.canceled.title" = "预加载取消";
+"preload.error.title" = "预加载出错";
+"app.common.start" = "开始";
+"app.common.pause" = "暂停";
+"app.common.resume" = "恢复";
+"app.common.cancel" = "取消";
+"app.common.ok" = "确定";
+"preload.onCompleted" = "预加载完成 - TaskId: %@, UrlOrVid: %@";
+"preload.onCanceled" = "预加载取消 - TaskId: %@, UrlOrVid: %@";
+"preload.onError" = "预加载错误 - TaskId: %@, UrlOrVid: %@, Error: %@";
+"basiclivestream.switch.resolution" = "切换清晰度";
+"basiclivestream.onSwitchedSuccess" = "[StreamSwitch] 切换成功: url=%@";
+"basiclivestream.onSwitchedFail" = "[StreamSwitch] 切换失败: %@, 错误码: %ld, 错误信息: %@";
 

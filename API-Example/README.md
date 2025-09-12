@@ -28,20 +28,21 @@ Language: 中文简体 | [English](README-EN.md)
 
 本项目采用插件化组织方式，结构清晰、易于扩展：
 
-| 模块                 | 说明           | 主要功能                     |
-| -------------------- | -------------- | ---------------------------- |
-| **Example**          | 工程入口       | 初始化与启动 App 主框架      |
-| **App**              | 主应用框架     | 应用入口、插件管理、路由导航 |
-| **Common**           | 公共基础模块   | 常量定义、工具类、SDK 头文件 |
-| **BasicPlayback**    | 单功能演示模块 | 视频播放演示、播放控制       |
-| **Download**         | 单功能演示模块 | 视频下载与离线播放           |
-| **ExternalSubtitle** | 单功能演示模块 | 外挂字幕演示与切换           |
-| **FloatWindow**      | 单功能演示模块 | 悬浮窗播放                   |
-| **MultiResolution**  | 单功能演示模块 | 多码率/分辨率切换            |
-| **PictureInPicture** | 单功能演示模块 | 画中画播放                   |
-| **PreloadUrl**       | 单功能演示模块 | 视频预加载（Direct URL）     |
-| **RtsLiveStream**    | 单功能演示模块 | RTS 超低延迟直播播放         |
-| **Thumbnail**        | 单功能演示模块 | 视频缩略图预览               |
+| 模块                 | 说明           | 主要功能                     | 入口文件 |
+| -------------------- | -------------- | ---------------------------- | -------- |
+| **Example**          | 工程入口       | 初始化与启动 App 主框架      | ViewController |
+| **App**              | 主应用框架     | 应用入口、插件管理、路由导航 | AppHomeViewController |
+| **Common**           | 公共基础模块   | 常量定义、工具类、SDK 头文件 | Common.h |
+| **BasicPlayback**    | 单功能演示模块 | 视频播放演示、播放控制       | BasicPlaybackViewController |
+| **BasicLiveStream**  | 单功能演示模块 | 基础直播演示、播放控制       | BasicLiveStreamViewController |
+| **Download**         | 单功能演示模块 | 视频下载与离线播放           | DownloaderViewController |
+| **ExternalSubtitle** | 单功能演示模块 | 外挂字幕演示与切换           | ExternalSubtitleViewController |
+| **FloatWindow**      | 单功能演示模块 | 悬浮窗播放                   | FloatWindowViewController |
+| **MultiResolution**  | 单功能演示模块 | 多码率/分辨率切换            | MultiResolutionViewController |
+| **PictureInPicture** | 单功能演示模块 | 画中画播放                   | PictureInPictureViewController |
+| **Preload**          | 单功能演示模块 | 视频预加载（Direct URL/VOD）  | PreloadViewController |
+| **RtsLiveStream**    | 单功能演示模块 | RTS 超低延迟直播播放         | RtsLiveStreamViewController |
+| **Thumbnail**        | 单功能演示模块 | 视频缩略图预览               | ThumbnailViewController |
 
 > 📌 功能模块将根据业务和演示需求不断扩展，表格仅列举部分代表模块，更多功能请关注项目后续更新。
 

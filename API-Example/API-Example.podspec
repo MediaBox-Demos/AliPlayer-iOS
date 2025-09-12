@@ -43,6 +43,10 @@ Pod::Spec.new do |s|
     ss.dependency 'BasicPlayback'
   end
   
+  s.subspec 'BasicLiveStream' do |ss|
+    ss.dependency 'BasicLiveStream'
+  end
+  
   # RTS LiveStream modules
   s.subspec 'RtsLiveStream' do |ss|
     ss.dependency 'RtsLiveStream'
@@ -88,6 +92,7 @@ Pod::Spec.new do |s|
     ss.dependency 'API-Example/Common'
     ss.dependency 'API-Example/App'
     ss.dependency 'API-Example/BasicPlayback'
+    ss.dependency 'API-Example/BasicLiveStream'
     ss.dependency 'API-Example/RtsLiveStream'
     ss.dependency 'API-Example/Thumbnail'
     ss.dependency 'API-Example/ExternalSubtitle'

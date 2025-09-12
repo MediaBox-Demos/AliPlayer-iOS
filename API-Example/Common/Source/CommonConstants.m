@@ -13,6 +13,7 @@
 
 // Complete schema URLs
 NSString *const kSchemaBasicPlayback = @"demo://basic/playback";
+NSString *const kSchemaBasicLiveStream = @"demo://basic/livestream";
 NSString *const kSchemaRtsLiveStream = @"demo://basic/rtsLiveStream";
 
 NSString *const kSchemaThumbnailStream = @"demo://advanced/thumbnail";
@@ -40,6 +41,10 @@ NSString *const kModuleInfoKeyCategory = @"category";
 
 // URL of the sample video file
 NSString *const kSampleVideoURL = @"https://alivc-demo-vod.aliyuncs.com/6b357371ef3c45f4a06e2536fd534380/53733986bce75cfc367d7554a47638c0-fd.mp4";
+// URL of the sample livestream video file
+NSString *const kSampleLiveStreamVideoURL = @"";
+// URL of the sample switch livestream video file
+NSString *const kSampleSwitchLiveStreamVideoURL = @"";
 // URL of the RTS Live-stream
 NSString *const kRTSLiveStreamURL = @"";
 // URL of the MultiResolution

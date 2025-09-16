@@ -86,10 +86,13 @@ extern NSString *const kSampleVideoExternalSubtitleURL;
 extern NSString *const kSampleExternalSubtitleURL;
 // URL of the sample video preloadUrl
 extern NSString *const kSampleVideoPreloadURL;
-// URL of the sample request playAuth
+// URL of the sample request Url
 extern NSString *const kSampleRequestUrl;
 // Vid of the sample request playAuth
 extern NSString *const kSampleRequestVid;
+// Example video VID and PlayAuth (configuration required when playing VOD)
+extern NSString *const kSampleVid;
+extern NSString *const kSamplePlayAuth;
 
 @end
 

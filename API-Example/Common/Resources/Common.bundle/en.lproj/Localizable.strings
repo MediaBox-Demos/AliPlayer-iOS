@@ -63,5 +63,3 @@
 "preload.onCanceled" = "Preload cancel - TaskId: %@, UrlOrVid: %@";
 "preload.onError" = "Preload error - TaskId: %@, UrlOrVid: %@, Error: %@";
 "basiclivestream.switch.resolution" = "Switch resolution";
-"basiclivestream.onSwitchedSuccess" = "[SwitchStream]: switch success, url=%@";
-"basiclivestream.onSwitchedFail" = "[SwitchStream]: switch failed: %@, 错误码: %ld, 错误信息: %@";

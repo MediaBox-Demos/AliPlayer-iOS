@@ -47,9 +47,6 @@
 
     // Step 2 & Step 3: 设置播放源并开始播放
     [self startPlayback];
-
-    // Step 4: 设置直播流切换功能
-    [self setupStreamSwitching];
 }
 
 // 释放资源
@@ -99,6 +96,8 @@
     self.switchResolutionBtn.frame = CGRectMake(20, 100, 120, 40);
     [self.view addSubview:self.switchResolutionBtn];
 
+    // 1.3: 设置直播流切换功能
+    [self setupStreamSwitching];
     NSLog(@"[Step 1] 播放器视图初始化完成");
 }
 
@@ -117,9 +116,7 @@
 }
 
 /**
- * Step 4: 设置直播流切换功能
- *
- * 设置清晰度切换按钮监听，流切换回调通过 AVPDelegate 协议方法处理
+ * 设置直播流切换
  */
 - (void)setupStreamSwitching {
     // 设置清晰度切换按钮点击监听
@@ -127,7 +124,7 @@
                                  action:@selector(onSwitchResolutionButtonTapped:)
                        forControlEvents:UIControlEventTouchUpInside];
 
-    NSLog(@"[Step 4] 直播流切换功能设置完成");
+    NSLog(@"直播流切换功能设置完成");
 }
 
 #pragma mark - Button Actions
@@ -141,20 +138,18 @@
 
 // 切换成功回调
 - (void)onStreamSwitchedSuccess:(AliPlayer*)player URL:(NSString*)URL {
-    NSString *message = [NSString stringWithFormat:AppGetString(@"basiclivestream.onSwitchedSuccess"), URL];
-    NSLog(@"%@", message);
+    NSLog(@"[StreamSwitch] 切换成功: url=%@", URL);
 }
 
 // 切换失败回调
 - (void)onStreamSwitchedFail:(AliPlayer*)player URL:(NSString*)URL errorModel:(AVPErrorModel *)errorModel {
-    NSString *message = [NSString stringWithFormat:AppGetString(@"basiclivestream.onSwitchedFail"), URL, (long)errorModel.code, errorModel.message];
-    NSLog(@"%@", message);
+    NSLog(@"[StreamSwitch] 切换失败: %@, 错误码: %ld, 错误信息: %@", URL, (long)errorModel.code, errorModel.message);
 }
 
 #pragma mark - Cleanup Methods
 
 /**
- * Step 5: 资源清理
+ * Step 4: 资源清理
  *
  * 方案1：stop + destroy，适用于通用场景；释放操作有耗时，会阻塞当前线程，直到资源完全释放。
  * 方案2：destroyAsync，无需手动 stop，适用于短剧等场景；异步释放资源，不阻塞线程，内部已自动调用 stop。
@@ -162,13 +157,13 @@
  */
 - (void)cleanupPlayer {
     if (self.player) {
-        // 5.1 停止播放
+        // 4.1 停止播放
         [self.player stop];
 
-        // 5.2 销毁播放器实例
+        // 4.2 销毁播放器实例
         [self.player destroy];
 
-        // 5.3 清空引用，避免内存泄漏
+        // 4.3 清空引用，避免内存泄漏
         self.player = nil;
 
         NSLog(@"[Step 5] 播放器资源清理完成");

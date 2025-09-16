@@ -14,8 +14,12 @@ Pod::Spec.new do |s|
   
   s.source_files = 'Source/**/*.{h,m,mm}'
   # Resources moved to Common module
-  # s.resource = 'Resources/BasicPlayback.bundle'
+  # s.resource = 'Resources/BasicLiveStream.bundle'
   
   s.dependency 'Common'
   s.dependency 'AliPlayerSDK_iOS'
+  
+  # 可选：如果需要播放RTS流，需集成Rts SDK
+  # 参考文档：https://help.aliyun.com/zh/live/pull-streams-over-rts-on-ios
+  
 end

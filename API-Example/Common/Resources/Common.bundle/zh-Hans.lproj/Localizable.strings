@@ -63,6 +63,4 @@
 "preload.onCanceled" = "预加载取消 - TaskId: %@, UrlOrVid: %@";
 "preload.onError" = "预加载错误 - TaskId: %@, UrlOrVid: %@, Error: %@";
 "basiclivestream.switch.resolution" = "切换清晰度";
-"basiclivestream.onSwitchedSuccess" = "[StreamSwitch] 切换成功: url=%@";
-"basiclivestream.onSwitchedFail" = "[StreamSwitch] 切换失败: %@, 错误码: %ld, 错误信息: %@";
 

@@ -11,4 +11,4 @@
 #import "BasicLiveStreamModule.h"
 #import "BasicLiveStreamViewController.h"
 
-#endif /* BasicPlayback_h */
+#endif /* BasicLiveStream_h */

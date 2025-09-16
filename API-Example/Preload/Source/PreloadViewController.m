@@ -17,7 +17,8 @@
 
 // 播放器实例
 @property (nonatomic, strong) AliPlayer *player;
-@property(nonatomic,strong) AliMediaLoaderV2* vodMedialoader; //预加载器
+// 预加载器
+@property(nonatomic,strong) AliMediaLoaderV2* vodMedialoader;
 // 预加载任务
 @property (nonatomic, strong) AVPPreloadTask *preloadTask;
 // 任务ID
@@ -38,15 +39,11 @@ static const int kPreloadBufferDuration = 1000;
 /// 默认分辨率（宽度 × 高度）
 static const int kSampleDefaultResolution = 640 * 480;
 /// 默认码率（比特率）
-static const int kSampleDefaultBandwidth = 4000000;
+static const int kSampleDefaultBandwidth = 400 * 1000;
 /// 默认清晰度模式
 static NSString* const kSampleDefaultQuality = @"AUTO";
 // 默认清晰度
 static NSString* const kSampleDefaultDefinition = @"AUTO";
-
-// 示例视频 VID 和 PlayAuth（使用 VOD 播放时需要配置）
-static NSString * const kSampleVid = @"";
-static NSString * const kSamplePlayAuth = @"";
 
 #pragma mark - View Layout
 
@@ -336,7 +333,7 @@ static NSString * const kSamplePlayAuth = @"";
  * 恢复预加载任务
  */
 - (void)resumePreload {
-    if (self.taskId.length > 0) {
+    if (self.taskId!=nil && self.taskId.length > 0) {
         [self.vodMedialoader resumeTask:self.taskId];
         NSLog(@"预加载任务已恢复，TaskId: %@", self.taskId);
     }
@@ -346,7 +343,7 @@ static NSString * const kSamplePlayAuth = @"";
  * 取消预加载任务
  */
 - (void)cancelPreload {
-    if (self.taskId.length > 0) {
+    if (self.taskId!=nil && self.taskId.length > 0) {
         [self.vodMedialoader cancelTask:self.taskId];
         NSLog(@"预加载任务已取消，TaskId: %@", self.taskId);
     }

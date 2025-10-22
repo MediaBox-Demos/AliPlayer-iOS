@@ -10,29 +10,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PictureInPictureModule : NSObject
-/**
- * @brief Get module title
- * @note 获取模块标题
- */
-+ (NSString *)moduleTitle;
-
-/**
- * @brief Get module schema URL
- * @note 获取模块Schema URL
- */
-+ (NSString *)moduleSchema;
-
-/**
- * @brief Get module description
- * @note 获取模块描述
- */
-+ (NSString *)moduleDescription;
-
-/**
- * @brief Get module category
- * @note 获取模块分类
- */
-+ (NSString *)moduleCategory;
 
 /**
  * @brief Handle URL navigation

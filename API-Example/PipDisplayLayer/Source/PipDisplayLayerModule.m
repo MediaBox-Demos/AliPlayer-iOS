@@ -1,20 +1,20 @@
 //
-//  BasicPlaybackModule.m
-//  BasicPlayback
+//  PipDisplayLayerModule.m
+//  Pods
 //
-//  Created by keria on 2025/6/4.
+//  Created by 叶俊辉 on 2025/10/21.
 //
 
-#import "BasicPlaybackModule.h"
-#import "BasicPlaybackViewController.h"
+#import "PipDisplayLayer.h"
+#import "PipDisplayLayerViewController.h"
 #import <Common/CommonConstants.h>
 #import <Common/CommonLocalizedStrings.h>
 
-@implementation BasicPlaybackModule
+@implementation PipDisplayLayerModule
 
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController {
-    if (url && viewController && [kSchemaBasicPlayback isEqualToString:url]) {
-        BasicPlaybackViewController *vc = [[BasicPlaybackViewController alloc] init];
+    if (url && viewController && [kSchemaPipDisplayLayer isEqualToString:url]) {
+        PipDisplayLayerViewController *vc = [[PipDisplayLayerViewController alloc] init];
 
         // 确保有导航控制器才进行push操作
         if (viewController.navigationController) {

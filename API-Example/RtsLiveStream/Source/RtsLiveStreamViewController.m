@@ -173,31 +173,6 @@
     }
 }
 
-
-
-#pragma mark - AVPDelegate Event Handlers
-
-/**
- * 播放器事件回调（通用事件）
- *
- * 处理特定播放事件，例如：
- * - 准备完成：触发自动播放
- */
-- (void)onPlayerEvent:(AliPlayer *)player eventType:(AVPEventType)eventType {
-    switch (eventType) {
-        case AVPEventPrepareDone:
-            // 播放器已准备好，显式调用 start 确保开始播放
-            // （尽管 prepare 后通常自动播放，但此处双重保险）
-            [self.player start];
-            break;
-
-        default:
-            // 其他事件暂不做处理
-            break;
-    }
-}
-
-
 /**
  * 播放器字符串型事件回调
  *

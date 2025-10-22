@@ -92,10 +92,6 @@ NSString * const kSchemaYourNewModule = @"your-new-module://";
 
 ```objective-c
 @interface YourNewModuleModule : NSObject
-+ (NSString *)moduleTitle;
-+ (NSString *)moduleSchema;
-+ (NSString *)moduleDescription;
-+ (NSString *)moduleCategory;
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController;
 @end
 ```
@@ -127,7 +123,19 @@ NSString * const kSchemaYourNewModule = @"your-new-module://";
 pod 'YourNewModule', :path => './YourNewModule'
 ```
 
-### **Step 9：安装依赖并测试**
+### **Step 9：在菜单配置中添加新项**
+
+为了让新功能在主菜单中显示，需要在 `App/Source/Config/AppMenuConfig.m` 文件中添加相应的菜单项。找到 `getMenuItems` 方法，在适当的位置添加以下代码：
+
+```objective-c
+// 添加新功能项到基础功能或进阶功能区域
+AppMenuItem *newModuleItem = [AppMenuItem createItemWithTitle:AppGetString(@"app.your_new_module.title")
+                                                       schema:kSchemaYourNewModule
+                                                  description:AppGetString(@"app.your_new_module.description")];
+[menuItems addObject:newModuleItem];
+```
+
+### **Step 10：安装依赖并测试**
 
 ```bash
 cd Example

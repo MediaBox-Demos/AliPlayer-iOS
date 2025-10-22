@@ -231,9 +231,9 @@ static NSString* const kSampleDefaultDefinition = @"AUTO";
 /**
  * 使用 VID 方式开始预加载
  *
- * 适用于阿里云 VOD 服务的视频播放
+ * 适用于阿里云 VID 的视频播放
  */
-// FIXME: 使用VOD播放的预加载功能时，传入您对应的 VID 和 PlayAuth
+// FIXME: 使用VID播放的预加载功能时，传入您对应的 VID 和 PlayAuth
 - (void)startPreloadWithVid {
     AVPVidAuthSource *vidAuthSource = [[AVPVidAuthSource alloc] init];
     vidAuthSource.vid = kSampleVid;

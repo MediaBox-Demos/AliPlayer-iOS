@@ -30,22 +30,15 @@ extern NSString *const kSchemaRtsLiveStream;
 
 extern NSString *const kSchemaThumbnailStream;
 extern NSString *const kSchemaExternalSubtitleStream;
+extern NSString *const kSchemaExternalSubtitleVttStream;
 extern NSString *const kSchemaPreloadStream;
 extern NSString *const kSchemaDownloader;
 // URL of the picture in picture Demo
-extern NSString *const kSchemaPipDemo;
+extern NSString *const kSchemaPipDefault;
+extern NSString *const kSchemaPipDisplayLayer;
 // URL of the float-window Demo
 extern NSString *const kSchemaFloatWindow;
 extern NSString *const kSchemaMultiResolution;
-#pragma mark - Module Category Constants
-/**
- * @brief Module category constants for global consistency
- * @note 模块分类常量，用于全局统一
- */
-
-// Module categories
-extern NSString *const kModuleCategoryBasic;
-extern NSString *const kModuleCategoryAdvanced;
 
 #pragma mark - Module Info Keys
 /**
@@ -68,6 +61,8 @@ extern NSString *const kModuleInfoKeyCategory;
 
 // URL of the sample video file
 extern NSString *const kSampleVideoURL;
+// URL of the sample subtitle vtt video file
+extern NSString *const kSampleVttSubtitleVideoURL;
 // URL of the sample livestream video file
 extern NSString *const kSampleLiveStreamVideoURL;
 // URL of the sample switch livestream video file
@@ -84,13 +79,15 @@ extern NSString *const kSampleVideoThumbnailURL;
 extern NSString *const kSampleVideoExternalSubtitleURL;
 // URL of the sample external subtitle
 extern NSString *const kSampleExternalSubtitleURL;
+// URL of the sample subtitle vtt file
+extern NSString *const kSampleExternalSubtitleVttURL;
 // URL of the sample video preloadUrl
 extern NSString *const kSampleVideoPreloadURL;
 // URL of the sample request Url
 extern NSString *const kSampleRequestUrl;
 // Vid of the sample request playAuth
 extern NSString *const kSampleRequestVid;
-// Example video VID and PlayAuth (configuration required when playing VOD)
+// Example video VID and PlayAuth (configuration required when playing VID)
 extern NSString *const kSampleVid;
 extern NSString *const kSamplePlayAuth;
 

@@ -11,22 +11,6 @@
 #import <Common/CommonLocalizedStrings.h>
 @implementation ExternalSubtitleModule
 
-+ (NSString *)moduleTitle {
-    return AppGetString(@"app.advanced.externalSubtitle.title");
-}
-
-+ (NSString *)moduleSchema {
-    return kSchemaExternalSubtitleStream;
-}
-
-+ (NSString *)moduleDescription {
-    return AppGetString(@"app.advanced.externalSubtitle.description");
-}
-
-+ (NSString *)moduleCategory {
-    return kModuleCategoryAdvanced;
-}
-
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController {
     if (url && viewController && [kSchemaExternalSubtitleStream isEqualToString:url]) {
         ExternalSubtitleViewController *vc = [[ExternalSubtitleViewController alloc] init];

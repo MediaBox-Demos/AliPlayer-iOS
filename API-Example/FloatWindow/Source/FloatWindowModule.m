@@ -12,22 +12,6 @@
 
 @implementation FloatWindowModule
 
-+ (NSString *)moduleTitle {
-    return AppGetString(@"app.advanced.flow.title");
-}
-
-+ (NSString *)moduleSchema {
-    return kSchemaFloatWindow;
-}
-
-+ (NSString *)moduleDescription {
-    return AppGetString(@"app.advanced.flow.description");
-}
-
-+ (NSString *)moduleCategory {
-    return kModuleCategoryAdvanced;
-}
-
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController {
     if (url && viewController && [kSchemaFloatWindow isEqualToString:url]) {
         FloatWindowViewController *vc = [[FloatWindowViewController alloc] init];

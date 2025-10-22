@@ -11,22 +11,6 @@
 #import <Common/CommonLocalizedStrings.h>
 @implementation DownloaderModule
 
-+ (NSString *)moduleTitle {
-    return AppGetString(@"app.advanced.downloader.title");
-}
-
-+ (NSString *)moduleSchema {
-    return kSchemaDownloader;
-}
-
-+ (NSString *)moduleDescription {
-    return AppGetString(@"app.advanced.downloader.description");
-}
-
-+ (NSString *)moduleCategory {
-    return kModuleCategoryAdvanced;
-}
-
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController {
     if (url && viewController && [kSchemaDownloader isEqualToString:url]) {
         DownloaderViewController *vc = [[DownloaderViewController alloc] init];

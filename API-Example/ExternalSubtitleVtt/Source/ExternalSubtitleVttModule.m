@@ -1,21 +1,19 @@
 //
-//  BasicPlaybackModule.m
-//  BasicPlayback
+//  ExternalSubtitleVttModule.m
+//  ExternalSubtitleVttModule
 //
-//  Created by keria on 2025/6/4.
+//  Created by 叶俊辉 on 2025/10/20.
 //
 
-#import "BasicPlaybackModule.h"
-#import "BasicPlaybackViewController.h"
+#import "ExternalSubtitleVttModule.h"
+#import "ExternalSubtitleVttViewController.h"
 #import <Common/CommonConstants.h>
 #import <Common/CommonLocalizedStrings.h>
-
-@implementation BasicPlaybackModule
+@implementation ExternalSubtitleVttModule
 
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController {
-    if (url && viewController && [kSchemaBasicPlayback isEqualToString:url]) {
-        BasicPlaybackViewController *vc = [[BasicPlaybackViewController alloc] init];
-
+    if (url && viewController && [kSchemaExternalSubtitleVttStream isEqualToString:url]) {
+        ExternalSubtitleVttViewController *vc = [[ExternalSubtitleVttViewController alloc] init];
         // 确保有导航控制器才进行push操作
         if (viewController.navigationController) {
             [viewController.navigationController pushViewController:vc animated:YES];

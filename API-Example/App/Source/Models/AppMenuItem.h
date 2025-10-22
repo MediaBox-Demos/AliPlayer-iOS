@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 typedef NS_ENUM(NSInteger, AppMenuItemType) {
     AppMenuItemTypeHeader = 0, // 标题类型
-    AppMenuItemTypeItem = 1    // 项目类型
+    AppMenuItemTypeItem = 1,   // 项目类型
+    AppMenuItemTypeExpandable = 2 // 可展开项目类型
 };
 
 /**
@@ -31,6 +32,8 @@ typedef NS_ENUM(NSInteger, AppMenuItemType) {
 @property (nonatomic, strong, readonly) NSString *title;
 @property (nonatomic, strong, readonly, nullable) NSString *schema;
 @property (nonatomic, strong, readonly, nullable) NSString *itemDescription;
+@property (nonatomic, strong, readonly, nullable) NSArray<AppMenuItem *> *subItems; // 子项数组
+@property (nonatomic, assign, getter=isExpanded) BOOL expanded; // 是否展开
 
 /**
  * @brief Initialize menu item with specified parameters
@@ -41,13 +44,15 @@ typedef NS_ENUM(NSInteger, AppMenuItemType) {
  * @param title The title of menu item
  * @param schema The schema URL for navigation (optional)
  * @param description The description of menu item (optional)
+ * @param subItems The sub items for expandable items (optional)
  *
  * @return Initialized menu item instance
  */
 - (instancetype)initWithType:(AppMenuItemType)type
                        title:(NSString *)title
                       schema:(nullable NSString *)schema
-                 description:(nullable NSString *)description;
+                 description:(nullable NSString *)description
+                   subItems:(nullable NSArray<AppMenuItem *> *)subItems;
 
 /**
  * @brief Create a header type menu item
@@ -74,6 +79,21 @@ typedef NS_ENUM(NSInteger, AppMenuItemType) {
 + (instancetype)createItemWithTitle:(NSString *)title
                              schema:(NSString *)schema
                         description:(NSString *)description;
+
+/**
+ * @brief Create an expandable type menu item
+ *
+ * 创建可展开类型的菜单项
+ *
+ * @param title The title of item
+ * @param description The description of item
+ * @param subItems The sub items
+ *
+ * @return Expandable menu item instance
+ */
++ (instancetype)createExpandableItemWithTitle:(NSString *)title
+                                  description:(NSString *)description
+                                     subItems:(NSArray<AppMenuItem *> *)subItems;
 
 @end
 

@@ -11,7 +11,6 @@
 #import "AppHomeViewController.h"
 #import "AppMenuConfig.h"
 #import "AppMenuItem.h"
-#import "AppModuleManager.h"
 #import "AppSchemaRouter.h"
 
 #endif /* App_h */

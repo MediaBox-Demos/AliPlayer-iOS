@@ -12,22 +12,6 @@
 
 @implementation RtsLiveStreamModule
 
-+ (NSString *)moduleTitle {
-    return AppGetString(@"app.basic.rts.title");
-}
-
-+ (NSString *)moduleSchema {
-    return kSchemaRtsLiveStream;
-}
-
-+ (NSString *)moduleDescription {
-    return AppGetString(@"app.basic.rts.description");
-}
-
-+ (NSString *)moduleCategory {
-    return kModuleCategoryBasic;
-}
-
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController {
     if (url && viewController && [kSchemaRtsLiveStream isEqualToString:url]) {
         RtsLiveStreamViewController *vc = [[RtsLiveStreamViewController alloc] init];

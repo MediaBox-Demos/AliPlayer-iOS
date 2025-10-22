@@ -1,16 +1,15 @@
 //
-//  ExternalSubtitleModule.h
-//  ExternalSubtitle
+//  PipDisplayLayerModule.h
+//  Pods
 //
-//  Created by 叶俊辉 on 2025/6/17.
+//  Created by 叶俊辉 on 2025/10/21.
 //
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ExternalSubtitleModule : NSObject
+@interface PipDisplayLayerModule : NSObject
 
 /**
  * @brief Handle URL navigation

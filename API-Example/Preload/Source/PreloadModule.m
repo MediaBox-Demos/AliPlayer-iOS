@@ -11,22 +11,6 @@
 #import <Common/CommonLocalizedStrings.h>
 @implementation PreloadModule
 
-+ (NSString *)moduleTitle {
-    return AppGetString(@"app.advanced.preload.title");
-}
-
-+ (NSString *)moduleSchema {
-    return kSchemaPreloadStream;
-}
-
-+ (NSString *)moduleDescription {
-    return AppGetString(@"app.advanced.preload.description");
-}
-
-+ (NSString *)moduleCategory {
-    return kModuleCategoryAdvanced;
-}
-
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController {
     if (url && viewController && [kSchemaPreloadStream isEqualToString:url]) {
         PreloadViewController *vc = [[PreloadViewController alloc] init];

@@ -12,22 +12,6 @@
 
 @implementation MultiResolutionModule
 
-+ (NSString *)moduleTitle {
-    return AppGetString(@"app.advanced.multi.title");
-}
-
-+ (NSString *)moduleSchema {
-    return kSchemaMultiResolution;
-}
-
-+ (NSString *)moduleDescription {
-    return AppGetString(@"app.advanced.multi.description");
-}
-
-+ (NSString *)moduleCategory {
-    return kModuleCategoryAdvanced;
-}
-
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController {
     if (url && viewController && [kSchemaMultiResolution isEqualToString:url]) {
         MultiResolutionViewController *vc = [[MultiResolutionViewController alloc] init];

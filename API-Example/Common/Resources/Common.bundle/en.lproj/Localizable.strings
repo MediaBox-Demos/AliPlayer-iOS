@@ -12,6 +12,14 @@
 "app.menu.basic_features" = "Basic Features";
 "app.menu.advanced_features" = "Advanced Features";
 
+// Expandable Items
+"app.menu.expand.liveStream.title" = "Live Stream Playback";
+"app.menu.expand.liveStream.description" = "Supports multiple live streaming protocols";
+"app.menu.expand.pip.title" = "Picture in Picture";
+"app.menu.expand.pip.description" = "Demonstrate PictureInPicture usage";
+"app.menu.expand.externalSubtitle.title" = "External Subtitle Playback";
+"app.menu.expand.externalSubtitle.description" = "Supports multiple external subtitle view";
+
 // Basic Features
 "app.basic.playback.title" = "BasicPlayback";
 "app.basic.playback.description" = "Demonstrate basic functionality usage";
@@ -21,14 +29,18 @@
 // Advanced Features
 "app.advanced.thumbnail.title" = "Thumbnail";
 "app.advanced.thumbnail.description" = "Demonstrate Thumbnail usage";
-"app.advanced.externalSubtitle.title" = "ExternalSubtitle";
-"app.advanced.externalSubtitle.description" = "Demonstrate ExternalSubtitle usage";
+"app.advanced.externalSubtitleVtt.title" = "External Subtitle (Recommended)";
+"app.advanced.externalSubtitleVtt.description" = "Demonstrates SRT and VTT subtitle display implementation based on SDK capability";
+"app.advanced.externalSubtitle.title" = "External Subtitle (UILabel)";
+"app.advanced.externalSubtitle.description" = "Demonstrates SRT and VTT subtitle display implementation based on UILabel";
 "app.advanced.preload.title" = "Preload(URL)";
 "app.advanced.preload.description" = "Demonstrate Preload(URL) usage";
-"app.advanced.pip.title" = "Picture in Picture";
-"app.advanced.pip.description" = "Demonstrate PictureInPicture usage";
-"app.advanced.flow.title" = "Float Window";
-"app.advanced.flow.description" = "Demonstrate Float-Window usage";
+"app.advanced.pipdefault.title" = "Picture in Picture (Default)";
+"app.advanced.pipdefault.description" = "Standard Picture in Picture implementation using AVPlayer with a dedicated AVPictureInPictureController per instance.";
+"app.advanced.pipdisplaylayer.title" = "Picture in Picture (SampleBufferDisplayLayer)";
+"app.advanced.pipdisplaylayer.description" = "Picture in Picture implementation based on a shared AVSampleBufferDisplayLayer and global frame submission.";
+"app.advanced.floatWindow.title" = "Float Window";
+"app.advanced.floatWindow.description" = "Demonstrate Float-Window usage";
 "app.advanced.multi.title" = "Multi-Resolution";
 "app.advanced.multi.description" = "Demonstrate Multi-Resolution usage";
 "app.advanced.downloader.title" = "Downloader";

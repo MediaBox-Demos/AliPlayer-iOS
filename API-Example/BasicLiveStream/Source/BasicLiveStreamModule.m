@@ -12,22 +12,6 @@
 
 @implementation BasicLiveStreamModule
 
-+ (NSString *)moduleTitle {
-    return AppGetString(@"app.basic.livestream.title");
-}
-
-+ (NSString *)moduleSchema {
-    return kSchemaBasicLiveStream;
-}
-
-+ (NSString *)moduleDescription {
-    return AppGetString(@"app.basic.livestream.description");
-}
-
-+ (NSString *)moduleCategory {
-    return kModuleCategoryBasic;
-}
-
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController {
     if (url && viewController && [kSchemaBasicLiveStream isEqualToString:url]) {
         BasicLiveStreamViewController *vc = [[BasicLiveStreamViewController alloc] init];

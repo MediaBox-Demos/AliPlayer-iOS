@@ -1,8 +1,8 @@
 //
-//  ExternalSubtitleModule.h
-//  ExternalSubtitle
+//  ExternalSubtitleVttModule.h
+//  ExternalSubtitleVttModule
 //
-//  Created by 叶俊辉 on 2025/6/17.
+//  Created by 叶俊辉 on 2025/10/20.
 //
 
 #import <Foundation/Foundation.h>
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ExternalSubtitleModule : NSObject
+@interface ExternalSubtitleVttModule : NSObject
 
 /**
  * @brief Handle URL navigation

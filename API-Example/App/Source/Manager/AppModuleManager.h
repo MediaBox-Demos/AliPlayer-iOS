@@ -25,14 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedManager;
 
 /**
- * @brief Get all module information
- * @note 获取所有模块信息
- *
- * @return Array of module info dictionaries containing title, schema, description, category
- */
-- (NSArray *)allModuleInfos;
-
-/**
  * @brief Handle URL navigation through modules
  * @note 通过模块处理URL导航
  *

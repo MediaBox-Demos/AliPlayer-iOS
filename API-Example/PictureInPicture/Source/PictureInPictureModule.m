@@ -12,24 +12,8 @@
 
 @implementation PictureInPictureModule
 
-+ (NSString *)moduleTitle {
-    return AppGetString(@"app.advanced.pip.title");
-}
-
-+ (NSString *)moduleSchema {
-    return kSchemaPipDemo;
-}
-
-+ (NSString *)moduleDescription {
-    return AppGetString(@"app.advanced.pip.description");
-}
-
-+ (NSString *)moduleCategory {
-    return kModuleCategoryAdvanced;
-}
-
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController {
-    if (url && viewController && [kSchemaPipDemo isEqualToString:url]) {
+    if (url && viewController && [kSchemaPipDefault isEqualToString:url]) {
         PictureInPictureViewController *vc = [[PictureInPictureViewController alloc] init];
 
         // 确保有导航控制器才进行push操作

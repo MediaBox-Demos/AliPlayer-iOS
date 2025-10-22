@@ -11,22 +11,6 @@
 #import <Common/CommonLocalizedStrings.h>
 @implementation ThumbnailModule
 
-+ (NSString *)moduleTitle {
-    return AppGetString(@"app.advanced.thumbnail.title");
-}
-
-+ (NSString *)moduleSchema {
-    return kSchemaThumbnailStream;
-}
-
-+ (NSString *)moduleDescription {
-    return AppGetString(@"app.advanced.thumbnail.description");
-}
-
-+ (NSString *)moduleCategory {
-    return kModuleCategoryAdvanced;
-}
-
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController {
     if (url && viewController && [kSchemaThumbnailStream isEqualToString:url]) {
         ThumbnailViewController *vc = [[ThumbnailViewController alloc] init];

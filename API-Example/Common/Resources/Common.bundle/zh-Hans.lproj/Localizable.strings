@@ -12,6 +12,14 @@
 "app.menu.basic_features" = "基础功能";
 "app.menu.advanced_features" = "进阶功能";
 
+// Expandable Items
+"app.menu.expand.liveStream.title" = "直播流播放";
+"app.menu.expand.liveStream.description" = "支持多种直播流协议";
+"app.menu.expand.pip.title" = "画中画";
+"app.menu.expand.pip.description" = "展示画中画的使用方法";
+"app.menu.expand.externalSubtitle.title" = "外挂字幕";
+"app.menu.expand.externalSubtitle.description" = "支持多种外挂字幕视图";
+
 // Basic Features
 "app.basic.playback.title" = "基础演示";
 "app.basic.playback.description" = "展示基础功能的使用方法";
@@ -23,14 +31,18 @@
 // Advanced Features
 "app.advanced.thumbnail.title" = "缩略图演示";
 "app.advanced.thumbnail.description" = "展示缩略图的使用方法";
-"app.advanced.externalSubtitle.title" = "外挂字幕演示";
-"app.advanced.externalSubtitle.description" = "展示外挂字幕的使用方法";
+"app.advanced.externalSubtitleVtt.title" = "外挂字幕（推荐）";
+"app.advanced.externalSubtitleVtt.description" = "基于 SDK侧提供渲染组件 演示 SRT 和 VTT 字幕显示的实现方式";
+"app.advanced.externalSubtitle.title" = "外挂字幕（UILabel）";
+"app.advanced.externalSubtitle.description" = "基于 UILabel 演示 SRT 和 VTT 字幕显示的实现方式";
 "app.advanced.preload.title" = "预加载(URL)演示";
 "app.advanced.preload.description" = "展示预加载(URL)的使用方法";
-"app.advanced.pip.title" = "画中画演示";
-"app.advanced.pip.description" = "展示画中画的使用方法";
-"app.advanced.flow.title" = "悬浮窗演示";
-"app.advanced.flow.description" = "展示悬浮窗的使用方法";
+"app.advanced.pipdefault.title" = "画中画（默认方案）";
+"app.advanced.pipdefault.description" = "基于 AVPlayer 与独立 AVPictureInPictureController 的标准画中画实现。";
+"app.advanced.pipdisplaylayer.title" = "画中画（SampleBufferDisplayLayer）";
+"app.advanced.pipdisplaylayer.description" = "基于共享 AVSampleBufferDisplayLayer 与全局帧投递的画中画方案";
+"app.advanced.floatWindow.title" = "悬浮窗演示";
+"app.advanced.floatWindow.description" = "展示悬浮窗的使用方法";
 "app.advanced.multi.title" = "多清晰度切换演示";
 "app.advanced.multi.description" = "展示多清晰度切换的使用方法";
 "app.advanced.downloader.title" = "安全下载演示";

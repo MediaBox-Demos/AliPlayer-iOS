@@ -93,7 +93,7 @@ Choose the project that suits your needs:
 If you encounter problems or need technical support, you can get help through the following channels:
 
 - 📘 **Official Documentation**: [ApsaraVideo Player Help Center](https://www.alibabacloud.com/help/en/vod/)
-- 💬 **GitHub Issues**: Feel free to submit feedback and suggestions
+- 💬 **GitHub Issues**: [Feel free to submit feedback and suggestions](https://github.com/MediaBox-Demos/AliPlayer-iOS/issues)
 - 🔍 **Console**: [ApsaraVideo VOD Console](https://vod.console.aliyun.com)
 
 ---

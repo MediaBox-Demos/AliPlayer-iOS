@@ -61,6 +61,11 @@ extern NSString *const kModuleInfoKeyCategory;
 
 // URL of the sample video file
 extern NSString *const kSampleVideoURL;
+// 客户端播放器 SDK 版本要求：使用 本地签名播放凭证（JWTPlayAuth） 进行播放时，客户端播放器 SDK 版本需要 ≥ 7.10.0，否则无法完成播放鉴权。
+// Vid of the sample video file
+extern NSString *const kSampleVideoId;
+// PlayAuth of the sample video file
+extern NSString *const kSampleVideoAuth;
 // URL of the sample subtitle vtt video file
 extern NSString *const kSampleVttSubtitleVideoURL;
 // URL of the sample livestream video file
@@ -69,8 +74,6 @@ extern NSString *const kSampleLiveStreamVideoURL;
 extern NSString *const kSampleSwitchLiveStreamVideoURL;
 // URL of the RTS video file
 extern NSString *const kRTSLiveStreamURL;
-// URL of the MultiResolution
-extern NSString *const kMultiResolutionURL;
 // URL of the sample thumbnail
 extern NSString *const kSampleThumbnailURL;
 // URL of the sample video thumbnail

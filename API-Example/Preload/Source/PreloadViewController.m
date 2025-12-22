@@ -50,7 +50,7 @@ static NSString* const kSampleDefaultDefinition = @"AUTO";
 // 视图加载完毕后的初始化设置
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [AliPrivateService initLicenseService];
     self.title = AppGetString(@"preload.title");
     self.view.backgroundColor = [UIColor whiteColor];
     

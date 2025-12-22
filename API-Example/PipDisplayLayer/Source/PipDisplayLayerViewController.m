@@ -38,7 +38,7 @@
 // 视图加载完毕后的初始化设置
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [AliPrivateService initLicenseService];
     self.title = AppGetString(@"pip.title");
     self.view.backgroundColor = [UIColor blackColor];
     
@@ -208,14 +208,17 @@
 // Step 3: 设置播放源并开始播放
 - (void)startPlayback {
     // 3.1 创建播放源对象并设置播放地址
-    AVPUrlSource *urlSource = [[AVPUrlSource alloc] urlWithString:kSampleVideoURL];
-    [self.player setUrlSource:urlSource];
+    AVPVidAuthSource *authSource = [[AVPVidAuthSource alloc]init];
+    [authSource setVid:kSampleVideoId];
+    [authSource setPlayAuth:kSampleVideoAuth];
+    
+    [self.player setAuthSource:authSource];
     
     // 3.2 准备播放并开始
     [self.player prepare];
     [self.player start];
     
-    NSLog(@"[Step 3] 开始播放视频: %@", kSampleVideoURL);
+    NSLog(@"[Step 3] 开始播放视频: %@", kSampleVideoId);
 }
 
 #pragma mark - Picture in Picture Methods

@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [AliPrivateService initLicenseService];
     self.view.backgroundColor = UIColor.whiteColor;
 
     self.floatWindowBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.bounds.size.width / 2 - 40, self.view.bounds.size.height / 2 - 25, 80, 50)];

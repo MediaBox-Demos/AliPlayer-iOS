@@ -53,7 +53,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [AliPrivateService initLicenseService];
     // 设置页面基本属性
     self.title = AppGetString(@"app.advanced.downloader.title");
     self.view.backgroundColor = [UIColor whiteColor];

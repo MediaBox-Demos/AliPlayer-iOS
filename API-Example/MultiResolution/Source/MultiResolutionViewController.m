@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [AliPrivateService initLicenseService];
     [self initView];
 
     [self setupPlayer];
@@ -99,9 +99,11 @@
  */
 - (void)startupPlayer {
     if (self.player) {
-        AVPUrlSource *urlSource = [[AVPUrlSource alloc] urlWithString:kMultiResolutionURL];
+        AVPVidAuthSource *authSource = [[AVPVidAuthSource alloc]init];
+        [authSource setVid:kSampleVideoId];
+        [authSource setPlayAuth:kSampleVideoAuth];
         // 设置数据源
-        [self.player setUrlSource:urlSource];
+        [self.player setAuthSource:authSource];
         // 准备播放
         [self.player prepare];
         // prepare 以后可以同步调用 start 操作，onPrepared 回调完成后会自动起播
@@ -138,7 +140,7 @@
     if (info != nil && info.count > 0) {
         NSMutableArray *result = [[NSMutableArray alloc] init];
         for (AVPTrackInfo *item in info) {
-            if (item.trackType == AVPTRACK_TYPE_VIDEO) {
+            if (item.trackType == AVPTRACK_TYPE_SAAS_VOD) {
                 [result addObject:item];
             }
         }

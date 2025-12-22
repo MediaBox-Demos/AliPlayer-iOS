@@ -32,7 +32,7 @@
  */
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [AliPrivateService initLicenseService];
     // 设置页面标题
     self.title = AppGetString(@"rtsLiveStream.title");
     // 设置背景为黑色（适配全屏播放）

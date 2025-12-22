@@ -26,6 +26,7 @@ static const NSInteger kVideoStartTimeMills = 8 * 1000;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [AliPrivateService initLicenseService];
     // 设置页面基本属性
     self.title = AppGetString(@"externalSubtitle.title");
     self.view.backgroundColor = [UIColor blackColor];

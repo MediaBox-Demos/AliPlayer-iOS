@@ -43,7 +43,7 @@ const CGFloat THUMB_HEIGHT = 192;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [AliPrivateService initLicenseService];
     // 设置页面基本属性
     self.title = AppGetString(@"thumbnail.title");
     self.view.backgroundColor = [UIColor blackColor];

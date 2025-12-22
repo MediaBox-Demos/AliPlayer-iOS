@@ -60,8 +60,10 @@
  * @brief Step 3 设置播放源&& prepare 播放器（准备播放）
  */
 - (void)startupPlayer {
-    AVPUrlSource *urlSource = [[AVPUrlSource alloc] urlWithString:kSampleVideoURL];
-    [self.player setUrlSource:urlSource];
+    AVPVidAuthSource *authSource = [[AVPVidAuthSource alloc]init];
+    [authSource setVid:kSampleVideoId];
+    [authSource setPlayAuth:kSampleVideoAuth];
+    [self.player setAuthSource:authSource];
     [self.player prepare];
 }
 

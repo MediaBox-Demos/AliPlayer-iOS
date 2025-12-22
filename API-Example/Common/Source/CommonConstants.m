@@ -36,6 +36,10 @@ NSString *const kModuleInfoKeyCategory = @"category";
 
 #pragma mark - Data Source Constants
 
+NSString *const kSampleVideoId = @"004fc90fd71d71f0bf184531958c0402";
+// 客户端播放器 SDK 版本要求：使用 本地签名播放凭证（JWTPlayAuth） 进行播放时，客户端播放器 SDK 版本需要 ≥ 7.10.0，否则无法完成播放鉴权
+NSString *const kSampleVideoAuth = @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImFwcC0xMDAwMDAwIiwidmlkZW9JZCI6IjAwNGZjOTBmZDcxZDcxZjBiZjE4NDUzMTk1OGMwNDAyIiwiY3VycmVudFRpbWVTdGFtcCI6MTc2NjEzMTE5MTYxMywiZXhwaXJlVGltZVN0YW1wIjoxOTIzODExMTkxNjEzLCJyZWdpb25JZCI6ImNuLXNoYW5naGFpIiwicGxheUNvbnRlbnRJbmZvIjp7ImZvcm1hdHMiOiJtM3U4Iiwic3RyZWFtVHlwZSI6InZpZGVvIiwiYXV0aFRpbWVvdXQiOjE4MDB9fQ.CjqZA-6okJb2PxOZr0Jjai9gWwvaNdG-bk3LWBMzhdc";
+
 // URL of the sample video file
 NSString *const kSampleVideoURL = @"https://alivc-demo-vod.aliyuncs.com/6b357371ef3c45f4a06e2536fd534380/53733986bce75cfc367d7554a47638c0-fd.mp4";
 // URL of the sample subtitle vtt video file
@@ -49,8 +53,6 @@ NSString *const kSampleSwitchLiveStreamVideoURL = @"";
 // URL of the RTS Live-stream
 // FIXME: Need to fill in the artc live stream, otherwise it will affect the rts module
 NSString *const kRTSLiveStreamURL = @"";
-// URL of the MultiResolution
-NSString *const kMultiResolutionURL = @"https://alivc-demo-vod.aliyuncs.com/d055a20270a671ef9d064531858c0102/cb2edb31f9674fb880462d8068b4cfd5.m3u8";
 // URL of the sample thumbnail
 NSString *const kSampleVideoThumbnailURL = @"https://alivc-demo-vod.aliyuncs.com/sv/5f2e5b7f-191dbfe2558/5f2e5b7f-191dbfe2558.mp4";
 // URL of the sample thumbnail

@@ -8,11 +8,11 @@ platform :ios, '9.0'
 def alivc_sdk_pods
   # 播放器 SDK 版本（建议保持与官方最新版本一致）
   # 参考更新日志：https://help.aliyun.com/zh/vod/developer-reference/release-notes-for-apsaravideo-player-sdk-for-ios
-  player_sdk_version = '7.8.0'
+  player_sdk_version = '7.10.0'
   
   # Rts低延时直播组件版本（建议保持与官方最新版本一致）
   # 您可以参考官网获取 RTS SDK 最新版本：https://help.aliyun.com/zh/live/pull-streams-over-rts-on-ios
-  rts_sdk_version = '7.8.0'
+  rts_sdk_version = '7.10.0'
   
   # 播放器SDK
   pod 'AliPlayerSDK_iOS', player_sdk_version

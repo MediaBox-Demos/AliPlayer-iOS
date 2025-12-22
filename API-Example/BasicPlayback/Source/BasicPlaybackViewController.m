@@ -24,7 +24,7 @@
 // 视图加载完毕后的初始化设置
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [AliPrivateService initLicenseService];
     self.title = AppGetString(@"basicplayback.title");
     self.view.backgroundColor = [UIColor blackColor];
 
@@ -67,15 +67,17 @@
 // Step 2: 设置播放源 & Step 3: 开始播放
 - (void)startPlayback {
     // Step 2: 创建播放源对象并设置播放地址
-    AVPUrlSource *urlSource = [[AVPUrlSource alloc] urlWithString:kSampleVideoURL];
-    [self.player setUrlSource:urlSource];
+    AVPVidAuthSource *authSource = [[AVPVidAuthSource alloc]init];
+    [authSource setVid:kSampleVideoId];
+    [authSource setPlayAuth:kSampleVideoAuth];
+    [self.player setAuthSource:authSource];
 
     // Step 3: 准备播放
     [self.player prepare];
     // prepare 以后可以同步调用 start 操作，onPrepared 回调完成后会自动起播
     [self.player start];
 
-    NSLog(@"[Step 2&3] 开始播放视频: %@", kSampleVideoURL);
+    NSLog(@"[Step 2&3] 开始播放视频: %@", kSampleVideoId);
 }
 
 /**

@@ -49,8 +49,11 @@
 - (void)setupPlayer {
     // 1.1 创建播放器实例
     self.player = [[AliPlayer alloc] init];
+    
+    // 1.2 设置播放场景
+    [self.player setPlayerScene:SceneLong];
 
-    // 1.2 创建用于承载播放画面的视图容器，并设置播放器渲染视图
+    // 1.3 创建用于承载播放画面的视图容器，并设置播放器渲染视图
     self.playerView = [[UIView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.playerView];
     self.player.playerView = self.playerView;

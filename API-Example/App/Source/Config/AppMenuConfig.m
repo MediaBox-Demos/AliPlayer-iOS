@@ -74,16 +74,17 @@
                                                   description:AppGetString(@"app.advanced.thumbnail.description")];
     [menuItems addObject:thumbnail];
     
-    // 创建外挂字幕展开项，包含外挂字幕（推荐）和外挂字幕（SubtitleView）
-    AppMenuItem *vttSubtitle = [AppMenuItem createItemWithTitle:AppGetString(@"app.advanced.externalSubtitleVtt.title")
-                                                           schema:kSchemaExternalSubtitleVttStream
-                                                      description:AppGetString(@"app.advanced.externalSubtitleVtt.description")];
+    // 创建外挂字幕展开项，包含外挂字幕（推荐）和外挂字幕（自定义）
     
     AppMenuItem *externalSubtitle = [AppMenuItem createItemWithTitle:AppGetString(@"app.advanced.externalSubtitle.title")
                                                              schema:kSchemaExternalSubtitleStream
                                                         description:AppGetString(@"app.advanced.externalSubtitle.description")];
     
-    NSArray<AppMenuItem *> *subtitleSubItems = @[vttSubtitle, externalSubtitle];
+    AppMenuItem *customStyledSubtitle = [AppMenuItem createItemWithTitle:AppGetString(@"app.advanced.customStyledSubtitle.title")
+                                                             schema:kSchemaCustomStyledSubtitleStream
+                                                        description:AppGetString(@"app.advanced.customStyledSubtitle.description")];
+    
+    NSArray<AppMenuItem *> *subtitleSubItems = @[externalSubtitle,customStyledSubtitle];
     AppMenuItem *subtitleExpandable = [AppMenuItem createExpandableItemWithTitle:AppGetString(@"app.menu.expand.externalSubtitle.title")
                                                                        description:AppGetString(@"app.menu.expand.externalSubtitle.description")
                                                                           subItems:subtitleSubItems];

@@ -92,6 +92,8 @@
     config.selectTrackBufferMode = 1;
 
     [self.player setConfig:config];
+    // 设置播放场景
+    [self.player setPlayerScene:SceneLong];
 }
 
 /**

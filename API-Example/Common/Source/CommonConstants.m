@@ -18,7 +18,7 @@ NSString *const kSchemaRtsLiveStream = @"demo://basic/rtsLiveStream";
 
 NSString *const kSchemaThumbnailStream = @"demo://advanced/thumbnail";
 NSString *const kSchemaExternalSubtitleStream = @"demo://advanced/externalSubtitle";
-NSString *const kSchemaExternalSubtitleVttStream = @"demo://advanced/externalSubtitleVtt";
+NSString *const kSchemaCustomStyledSubtitleStream = @"demo://advanced/customStyledSubtitle";
 NSString *const kSchemaPreloadStream = @"demo://advanced/preload";
 NSString *const kSchemaDownloader = @"demo://advanced/downloader";
 NSString *const kSchemaPipDefault = @"demo://advanced/pipDefault";
@@ -60,8 +60,6 @@ NSString *const kSampleThumbnailURL = @"https://llk-beijng.oss-cn-beijing.aliyun
 
 // URL of the sample video external subtitle
 NSString *const kSampleVideoExternalSubtitleURL = @"https://alivc-demo-vod.aliyuncs.com/6b357371ef3c45f4a06e2536fd534380/53733986bce75cfc367d7554a47638c0-fd.mp4";
-// URL of the sample external subtitle
-NSString *const kSampleExternalSubtitleURL = @"https://alivc-player.oss-cn-shanghai.aliyuncs.com/API-Example-File/long-video.srt";
 // URL of the sample subtitle vtt file
 NSString *const kSampleExternalSubtitleVttURL = @"https://alivc-demo-cms.alicdn.com/versionProduct/resources/API-Example/vtt/E19467B22A4F4286B462C0540F57CF46-3-3.vtt";
 

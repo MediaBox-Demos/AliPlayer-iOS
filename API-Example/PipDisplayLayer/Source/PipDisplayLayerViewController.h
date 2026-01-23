@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Step 1: 创建播放器实例和播放器视图
  *         - 创建 AliPlayer 实例
  *         - 设置渲染代理接收视频帧
+ *         - 设置播放场景
  *         - 开启后台解码能力
  *
  * Step 2: 初始化画中画组件

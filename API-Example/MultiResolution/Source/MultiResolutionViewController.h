@@ -32,6 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
  * self.player.playerView = self.playerView;
  * [self.player setDelegate:self];
  *
+ * 设置播放器场景
+ * [self.player setPlayerScene:SceneLong];
+ *
  * // 2. 设置播放源
  * AVPUrlSource *urlSource = [[AVPUrlSource alloc] urlWithString:videoURL];
  * [self.player setUrlSource:urlSource];

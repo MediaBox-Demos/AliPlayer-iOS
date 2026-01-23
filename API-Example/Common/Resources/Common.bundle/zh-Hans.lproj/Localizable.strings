@@ -31,10 +31,10 @@
 // Advanced Features
 "app.advanced.thumbnail.title" = "缩略图演示";
 "app.advanced.thumbnail.description" = "展示缩略图的使用方法";
-"app.advanced.externalSubtitleVtt.title" = "外挂字幕（推荐）";
-"app.advanced.externalSubtitleVtt.description" = "基于 SDK侧提供渲染组件 演示 SRT 和 VTT 字幕显示的实现方式";
-"app.advanced.externalSubtitle.title" = "外挂字幕（UILabel）";
-"app.advanced.externalSubtitle.description" = "基于 UILabel 演示 SRT 和 VTT 字幕显示的实现方式";
+"app.advanced.externalSubtitle.title" = "外挂字幕（推荐）";
+"app.advanced.externalSubtitle.description" = "演示使用内置渲染组件，若不设置header，则默认用内部组件渲染";
+"app.advanced.customStyledSubtitle.title" = "外挂字幕（自定义样式）";
+"app.advanced.customStyledSubtitle.description" = "演示使用 自定义外挂字幕样式（如颜色、字体）";
 "app.advanced.preload.title" = "预加载(URL)演示";
 "app.advanced.preload.description" = "展示预加载(URL)的使用方法";
 "app.advanced.pipdefault.title" = "画中画（默认方案）";

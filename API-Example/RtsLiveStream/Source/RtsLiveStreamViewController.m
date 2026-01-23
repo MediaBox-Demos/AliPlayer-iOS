@@ -102,6 +102,9 @@
     [self.view addSubview:self.playerView];
     // 绑定该视图为播放器渲染目标
     self.player.playerView = self.playerView;
+    
+    // 1.3 设置播放器场景
+    [self.player setPlayerScene:SceneRTSLive];
 
     NSLog(@"[Step 1] 播放器创建完成: %@", self.player);
 }

@@ -51,6 +51,7 @@
 - (void)setupPlayer {
     self.playerView = [[UIView alloc] initWithFrame:self.bounds];
     self.player = [[AliPlayer alloc] init];
+    [self.player setPlayerScene:SceneLong];
     self.player.playerView = self.playerView;
 
     [self addSubview:self.playerView];

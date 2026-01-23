@@ -31,22 +31,22 @@ The project adopts a **plugin-based architecture**, offers excellent **extensibi
 This project uses a plugin-based structure, with a clear structure and easy scalability:
 
 | Module               | Description                          | Main Functions                                               | Entry File |
-| ----------------------- | ------------------------------------ | ------------------------------------------------------------ | ---------- |
-| **Example**             | Project entrance                     | Initialize and start the main framework of the app           | ViewController |
-| **App**                 | Main application module              | Application entry point, plugin management, route navigation | AppHomeViewController |
-| **Common**              | Common base module                   | Constant definitions, utility classes, SDK headers           | Common.h |
-| **BasicPlayback**       | Single-Function demonstration module | Video playback demo, playback controls                       | BasicPlaybackViewController |
-| **BasicLiveStream**     | Single-Function demonstration module | Video livestream demo, playback controls                     | BasicLiveStreamViewController |
-| **Download**            | Single-Function demonstration module | Video download and offline playback                          | DownloaderViewController |
-| **ExternalSubtitle**    | Single-Function demonstration module | External subtitle demo and switching(Recommended)            | ExternalSubtitleViewController |
-| **ExternalSubtitleVtt** | Single-Function demonstration module | External subtitle demo and switching(UILabel)                | ExternalSubtitleViewController |
-| **FloatWindow**         | Single-Function demonstration module | Floating window playback                                     | FloatWindowViewController |
-| **MultiResolution**     | Single-Function demonstration module | Multi-bitrate/resolution switching                           | MultiResolutionViewController |
-| **PictureInPicture**    | Single-Function demonstration module | Picture-in-picture playback(Default scheme)                  | PictureInPictureViewController |
-| **PipDisplayLayer**    | Single-Function demonstration module  | Picture-in-picture playback(SampleBufferDisplayLayer)        | PipDisplayLayerViewController |
-| **Preload**             | Single-Function demonstration module | Video preloading (Direct URL/VID)                            | PreloadViewController |
-| **RtsLiveStream**       | Single-Function demonstration module | RTS ultra-low latency live streaming                         | RtsLiveStreamViewController |
-| **Thumbnail**           | Single-Function demonstration module | Video thumbnail preview                                      | ThumbnailViewController |
+| ------------------------ | ------------------------------------ | ------------------------------------------------------------ | ---------- |
+| **Example**              | Project entrance                     | Initialize and start the main framework of the app           | ViewController |
+| **App**                  | Main application module              | Application entry point, plugin management, route navigation | AppHomeViewController |
+| **Common**               | Common base module                   | Constant definitions, utility classes, SDK headers           | Common.h |
+| **BasicPlayback**        | Single-Function demonstration module | Video playback demo, playback controls                       | BasicPlaybackViewController |
+| **BasicLiveStream**      | Single-Function demonstration module | Video livestream demo, playback controls                     | BasicLiveStreamViewController |
+| **Download**             | Single-Function demonstration module | Video download and offline playback                          | DownloaderViewController |
+| **ExternalSubtitle**       | Single-Function demonstration module | The subtitle rendering component is now tightly integrated within the SDK—no need to set up callbacks anymore.           | ExternalSubtitleViewController |
+| **CustomStyleExternalSubtitle** | Single-Function demonstration module | Advanced styling for external subtitles is supported, allowing customization of font type, style, and other properties.  | CustomStyleExternalSubtitleViewController |
+| **FloatWindow**          | Single-Function demonstration module | Floating window playback                                     | FloatWindowViewController |
+| **MultiResolution**      | Single-Function demonstration module | Multi-bitrate/resolution switching                           | MultiResolutionViewController |
+| **PictureInPicture**     | Single-Function demonstration module | Picture-in-picture playback(Default scheme)                  | PictureInPictureViewController |
+| **PipDisplayLayer**      | Single-Function demonstration module | Picture-in-picture playback(SampleBufferDisplayLayer)        | PipDisplayLayerViewController |
+| **Preload**              | Single-Function demonstration module | Video preloading (Direct URL/VID)                            | PreloadViewController |
+| **RtsLiveStream**        | Single-Function demonstration module | RTS ultra-low latency live streaming                         | RtsLiveStreamViewController |
+| **Thumbnail**            | Single-Function demonstration module | Video thumbnail preview                                      | ThumbnailViewController |
 
 > 📌 The functional modules will be continuously expanded according to business and demonstration needs. The table only lists some representative modules. For more functions, please follow the project's subsequent updates.
 

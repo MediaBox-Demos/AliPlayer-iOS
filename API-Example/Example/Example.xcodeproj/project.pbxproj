@@ -14,6 +14,7 @@
 		65242E6A2A6E21660096CB8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65242E692A6E21660096CB8D /* Assets.xcassets */; };
 		65242E6D2A6E21660096CB8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65242E6B2A6E21660096CB8D /* LaunchScreen.storyboard */; };
 		65242E702A6E21660096CB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65242E6F2A6E21660096CB8D /* main.m */; };
+		B0DC642A2F206A4000F29C02 /* LongCang-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0DC64292F206A4000F29C02 /* LongCang-Regular.ttf */; };
 		CA57921B2DF178C50072C027 /* license.crt in Resources */ = {isa = PBXBuildFile; fileRef = CA57921A2DF178C50072C027 /* license.crt */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		65242E762A6E2A010096CB8D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		65242E772A6E2A010096CB8D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		72728F0C222F98F4ED229195 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		B0DC64292F206A4000F29C02 /* LongCang-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LongCang-Regular.ttf"; sourceTree = "<group>"; };
 		CA57921A2DF178C50072C027 /* license.crt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.crt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +71,7 @@
 		65242E5C2A6E21640096CB8D /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				B0DC64292F206A4000F29C02 /* LongCang-Regular.ttf */,
 				65242E5D2A6E21640096CB8D /* AppDelegate.h */,
 				65242E5E2A6E21640096CB8D /* AppDelegate.m */,
 				65242E632A6E21640096CB8D /* ViewController.h */,
@@ -165,6 +168,7 @@
 				CA57921B2DF178C50072C027 /* license.crt in Resources */,
 				65242E6A2A6E21660096CB8D /* Assets.xcassets in Resources */,
 				65242E682A6E21640096CB8D /* Main.storyboard in Resources */,
+				B0DC642A2F206A4000F29C02 /* LongCang-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

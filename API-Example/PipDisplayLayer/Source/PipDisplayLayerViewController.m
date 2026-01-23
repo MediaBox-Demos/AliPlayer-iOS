@@ -115,7 +115,10 @@
     self.player.playerView = self.playerView;
     [self.player setRenderingDelegate:self];
     
-    // 1.3 开启后台解码能力（画中画必需）
+    // 1.3 设置播放器场景
+    [self.player setPlayerScene:SceneLong];
+    
+    // 1.4 开启后台解码能力（画中画必需）
     [self.player setOption:ALLOW_DECODE_BACKGROUND valueInt:1];
     
     // 可选：推荐使用`播放器单点追查`功能

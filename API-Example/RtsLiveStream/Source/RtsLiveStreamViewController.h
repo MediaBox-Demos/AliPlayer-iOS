@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  *         - 使用 [[AliPlayer alloc] init] 创建播放器
  *         - 设置播放器渲染视图 playerView
  *         - 配置播放器基本参数
+ *         - 设置播放场景
  *
  * Step 2: 设置播放源
  *         - 创建 AVPUrlSource 播放源对象

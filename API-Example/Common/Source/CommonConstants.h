@@ -30,7 +30,7 @@ extern NSString *const kSchemaRtsLiveStream;
 
 extern NSString *const kSchemaThumbnailStream;
 extern NSString *const kSchemaExternalSubtitleStream;
-extern NSString *const kSchemaExternalSubtitleVttStream;
+extern NSString *const kSchemaCustomStyledSubtitleStream;
 extern NSString *const kSchemaPreloadStream;
 extern NSString *const kSchemaDownloader;
 // URL of the picture in picture Demo
@@ -80,8 +80,6 @@ extern NSString *const kSampleThumbnailURL;
 extern NSString *const kSampleVideoThumbnailURL;
 // URL of the sample video external subtitle
 extern NSString *const kSampleVideoExternalSubtitleURL;
-// URL of the sample external subtitle
-extern NSString *const kSampleExternalSubtitleURL;
 // URL of the sample subtitle vtt file
 extern NSString *const kSampleExternalSubtitleVttURL;
 // URL of the sample video preloadUrl

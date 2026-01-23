@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Step 1: 创建播放器实例和播放器视图
  *         - 使用 [[AliPlayer alloc] init] 创建播放器
  *         - 设置播放器渲染视图 playerView
+ *         - 设置播放器场景
  *         - 可选：设置 traceId 开启播放器单点追查
  *
  * Step 2: 设置播放源

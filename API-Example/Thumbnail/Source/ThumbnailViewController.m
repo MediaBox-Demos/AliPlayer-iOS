@@ -85,6 +85,9 @@ const CGFloat THUMB_HEIGHT = 192;
         _player.delegate = self;
         NSLog(@"[Step 1] 播放器实例创建成功");
     }
+    
+    // 1.3 设置播放器场景
+    [self.player setPlayerScene:SceneLong];
 }
 
 #pragma mark - Step 2: UI界面初始化

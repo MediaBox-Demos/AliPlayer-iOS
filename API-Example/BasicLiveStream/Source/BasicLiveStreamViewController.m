@@ -64,6 +64,9 @@
     // 创建播放器实例
     self.player = [[AliPlayer alloc] init];
     
+    // 设置播放场景
+    [self.player setPlayerScene:SceneLive];
+    
     // 设置播放器代理
     self.player.delegate = self;
 

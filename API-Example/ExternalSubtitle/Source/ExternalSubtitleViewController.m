@@ -1,8 +1,8 @@
 //
 //  ExternalSubtitleViewController.m
-//  ExternalSubtitle
+//  WebVttSubtitle
 //
-//  Created by 叶俊辉 on 2025/6/17.
+//  Created by 叶俊辉 on 2025/10/20.
 //
 
 #import "ExternalSubtitleViewController.h"
@@ -20,17 +20,6 @@ static const NSInteger kVideoStartTimeMills = 8 * 1000;
 // 播放器视图容器
 @property (nonatomic, strong) UIView *playerView;
 
-#pragma mark - 字幕相关属性
-// 字幕显示标签
-@property (nonatomic, strong) UILabel *subtitleLabel;
-// 字幕容器视图
-@property (nonatomic, strong) UIView *subtitleContainer;
-
-#pragma mark - 状态控制属性
-// 当前字幕轨道索引
-@property (nonatomic, assign) int currentSubtitleTrackIndex;
-// 字幕是否已添加
-@property (nonatomic, assign) BOOL subtitleAdded;
 @end
 
 @implementation ExternalSubtitleViewController
@@ -53,6 +42,7 @@ static const NSInteger kVideoStartTimeMills = 8 * 1000;
 }
 
 #pragma mark - Step 1: 播放器初始化
+
 /**
  * Step 1: 创建播放器实例
  */
@@ -63,14 +53,13 @@ static const NSInteger kVideoStartTimeMills = 8 * 1000;
     if (_player) {
         // 1.2 设置播放器代理
         _player.delegate = self;
-
-        // 1.3 初始化字幕相关状态
-        self.currentSubtitleTrackIndex = -1;
-        self.subtitleAdded = NO;
+        
+        // 1.3 设置播放场景
+        [self.player setPlayerScene:SceneLong];
 
         NSLog(@"[Step 1] 播放器实例创建成功");
     }
-    // 1.2 创建用于承载播放画面的视图容器，并设置播放器渲染视图
+    // 1.3 创建用于承载播放画面的视图容器，并设置播放器渲染视图
     self.playerView = [[UIView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.playerView];
     self.player.playerView = self.playerView;
@@ -93,9 +82,6 @@ static const NSInteger kVideoStartTimeMills = 8 * 1000;
     // 2.1 创建播放器视图容器
     [self setupPlayerView];
 
-    // 2.2 创建字幕显示视图
-    [self setupSubtitleView];
-
     NSLog(@"[Step 2] UI界面初始化完成");
 }
 
@@ -111,50 +97,26 @@ static const NSInteger kVideoStartTimeMills = 8 * 1000;
     self.player.playerView = self.playerView;
 }
 
-/**
- * 2.2 创建字幕显示视图
- */
-- (void)setupSubtitleView {
-    // 创建字幕容器视图
-    CGFloat containerHeight = 280;
-    CGFloat containerY = self.playerView.frame.size.height / 2 - containerHeight;
-
-    self.subtitleContainer = [[UIView alloc] initWithFrame:CGRectMake(20, containerY, self.view.frame.size.width - 40, containerHeight)];
-    self.subtitleContainer.layer.cornerRadius = 8.0;
-    self.subtitleContainer.clipsToBounds = YES;
-    self.subtitleContainer.hidden = YES;
-    [self.playerView addSubview:self.subtitleContainer];
-
-    // 创建字幕显示标签
-    self.subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 16, self.subtitleContainer.frame.size.width - 32, self.subtitleContainer.frame.size.height - 32)];
-    self.subtitleLabel.textColor = [UIColor colorWithRed:76 / 255.0 green:175 / 255.0 blue:80 / 255.0 alpha:1.0]; // #4CAF50
-    self.subtitleLabel.font = [UIFont systemFontOfSize:18.0];
-    self.subtitleLabel.textAlignment = NSTextAlignmentCenter;
-    self.subtitleLabel.numberOfLines = 0;
-    self.subtitleLabel.text = @"";
-    [self.subtitleContainer addSubview:self.subtitleLabel];
-}
-
 #pragma mark - Step 3 & Step 4: 播放源设置和播放准备
 
 /**
  * Step 3: 设置播放源 & Step 4: 开始播放
  */
 - (void)startPlayback {
-    // Step 2: 创建播放源对象并设置播放地址
-    AVPUrlSource *urlSource = [[AVPUrlSource alloc] urlWithString:kSampleVideoURL];
+    // Step 3: 创建播放源对象并设置播放地址
+    AVPUrlSource *urlSource = [[AVPUrlSource alloc] urlWithString:kSampleVttSubtitleVideoURL];
     [self.player setUrlSource:urlSource];
 
     // 可选（非必需）：设置视频播放起始位置
     // AVP_SEEKMODE_ACCURATE 表示精准 seek 到指定时间戳的位置播放，AVP_SEEKMODE_INACCURATE 表示 seek 到离指定时间戳最近的关键帧位置播放
     [self.player setStartTime:kVideoStartTimeMills seekMode:AVP_SEEKMODE_INACCURATE];
     
-    // Step 3: 准备播放
+    // Step 4: 准备播放
     [self.player prepare];
     // prepare 以后可以同步调用 start 操作，onPrepared 回调完成后会自动起播
     [self.player start];
 
-    NSLog(@"[Step 2&3] 开始播放视频: %@", kSampleVideoURL);
+    NSLog(@"[Step 3&4] 开始播放视频: %@", kSampleExternalSubtitleVttURL);
 }
 
 #pragma mark - Step 5 & Step 6: 播放器事件处理和字幕设置
@@ -191,10 +153,15 @@ static const NSInteger kVideoStartTimeMills = 8 * 1000;
  */
 - (void)handlePlayerPrepared:(AliPlayer *)player {
     // Step 5: 字幕设置（需要在准备完成后进行设置）
-    [self.player addExtSubtitle:kSampleExternalSubtitleURL];
-    NSLog(@"[Step 5] 添加外挂字幕: %@", kSampleExternalSubtitleURL);
+    if(kSampleExternalSubtitleVttURL !=Nil && kSampleExternalSubtitleVttURL.length>0){
+        [self.player addExtSubtitle:kSampleExternalSubtitleVttURL];
+        NSLog(@"[Step 5] 添加外挂字幕: %@", kSampleExternalSubtitleVttURL);
+    }
 }
 
+/**
+ * 播放器错误回调
+ */
 - (void)onError:(AliPlayer *)player errorModel:(AVPErrorModel *)errorModel {
     NSLog(@"播放器错误: %@", errorModel.message);
 }
@@ -207,54 +174,13 @@ static const NSInteger kVideoStartTimeMills = 8 * 1000;
 
 /**
  * 外挂字幕被添加
+ * @param player 播放器player指针
+ * @param trackIndex 字幕显示的索引号
+ * @param URL 字幕url
  */
-- (void)onSubtitleExtAdded:(AliPlayer *)player trackIndex:(int)trackIndex URL:(NSString *)URL {
-    NSLog(@"外挂字幕添加成功 - trackIndex: %d, URL: %@", trackIndex, URL);
-
-    // 记录字幕轨道索引
-    self.currentSubtitleTrackIndex = trackIndex;
-    self.subtitleAdded = YES;
-
-    // 选择并启用字幕轨道
+- (void)onSubtitleExtAdded:(AliPlayer*)player trackIndex:(int)trackIndex URL:(NSString *)URL {
+    NSLog(@"onSubtitleExtAdded: %@, trackIndex: %d", URL, trackIndex);
     [self.player selectExtSubtitle:trackIndex enable:YES];
-}
-
-/**
- * 字幕头信息回调
- */
-- (void)onSubtitleHeader:(AliPlayer *)player trackIndex:(int)trackIndex Header:(NSString *)header {
-    NSLog(@"字幕头信息 - trackIndex: %d, header: %@", trackIndex, header);
-}
-
-/**
- * 字幕显示回调
- */
-- (void)onSubtitleShow:(AliPlayer *)player trackIndex:(int)trackIndex subtitleID:(long)subtitleID subtitle:(NSString *)subtitle {
-    NSLog(@"显示字幕 - trackIndex: %d, subtitleID: %ld, subtitle: %@", trackIndex, subtitleID, subtitle);
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-      // 设置字幕文本
-      self.subtitleLabel.text = subtitle;
-      self.subtitleLabel.tag = subtitleID;
-
-      // 显示字幕容器
-      self.subtitleContainer.hidden = NO;
-    });
-}
-
-/**
- * 字幕隐藏回调
- */
-- (void)onSubtitleHide:(AliPlayer *)player trackIndex:(int)trackIndex subtitleID:(long)subtitleID {
-    NSLog(@"隐藏字幕 - trackIndex: %d, subtitleID: %ld", trackIndex, subtitleID);
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-      if (self.subtitleLabel.tag == subtitleID) {
-          self.subtitleContainer.hidden = YES;
-          self.subtitleLabel.text = @"";
-          self.subtitleContainer.alpha = 1.0;
-      }
-    });
 }
 
 #pragma mark - Step 7: 资源清理
@@ -273,7 +199,7 @@ static const NSInteger kVideoStartTimeMills = 8 * 1000;
         // 7.3 清空引用，避免内存泄漏
         self.player = nil;
 
-        NSLog(@"[Step 8] 播放器资源清理完成");
+        NSLog(@"[Step 7] 播放器资源清理完成");
     }
 }
 

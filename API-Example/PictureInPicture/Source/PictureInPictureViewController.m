@@ -99,6 +99,9 @@
 
     // 2.2 设置播放器渲染视图
     self.player.playerView = self.playerView;
+    
+    // 2.3 设置播放器场景
+    [self.player setPlayerScene:SceneLong];
 
     // 配置代理
     [self.player setDelegate:self];

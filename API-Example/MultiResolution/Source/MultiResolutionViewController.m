@@ -84,8 +84,7 @@
     [self.player setDelegate:self];
     // 设置播放器视图
     [self.player setPlayerView:self.playerView];
-    // 设置循环播放
-    [self.player setLoop:true];
+    
     // 设置快切模式
     AVPConfig *config = [self.player getConfig];
 
@@ -196,7 +195,7 @@
     int lastIndex = self.selectPosition;
     self.selectPosition = (int)indexPath.item;
 
-    [self.player selectTrack:self.data[indexPath.item].trackIndex];
+    [self.player selectTrack:self.data[indexPath.item].trackIndex accurate:true];
 
     [self.resolutionCollectionView reloadItemsAtIndexPaths:@[ [NSIndexPath indexPathForItem:lastIndex inSection:0] ]];
     [self.resolutionCollectionView reloadItemsAtIndexPaths:@[ [NSIndexPath indexPathForItem:indexPath.item inSection:0] ]];

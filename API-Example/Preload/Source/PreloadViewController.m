@@ -83,7 +83,7 @@ static NSString* const kSampleDefaultDefinition = @"AUTO";
 - (void)setupPlayer {
     // 创建播放器实例
     self.player = [[AliPlayer alloc] init];
-    self.vodMedialoader = [[AliMediaLoaderV2 alloc]init];
+    self.vodMedialoader = [AliMediaLoaderV2 shareInstance];
     // 可选：推荐使用`播放器单点追查`功能，当使用阿里云播放器 SDK 播放视频发生异常时，可借助单点追查功能针对具体某个用户或某次播放会话的异常播放行为进行全链路追踪，以便您能快速诊断问题原因，可有效改善播放体验治理效率。
     // traceId 值由您自行定义，需为您的用户或用户设备的唯一标识符，例如传入您业务的 userid 或者 IMEI、IDFA 等您业务用户的设备 ID。
     // 传入 traceId 后，埋点日志上报功能开启，后续可以使用播放质量监控、单点追查和视频播放统计功能。

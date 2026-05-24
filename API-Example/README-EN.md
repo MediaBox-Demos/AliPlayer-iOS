@@ -127,3 +127,11 @@ This project does not include an official license. Please complete the following
 
 After launching the app, you will enter the main menu page. Tap any function item to navigate to the corresponding playback demonstration page.
 
+## **📌 Quick Integration**
+
+The diagram below illustrates the key steps to integrate the Player SDK, helping you quickly implement video playback:
+
+![BasicPlayback](BasicPlayback/Wikis/BasicPlayback.png)
+
+> For more details, please refer to the official Quick Start documentation: [iOS Player Quick Start](https://help.aliyun.com/en/vod/developer-reference/ios-player-quick-start)
+

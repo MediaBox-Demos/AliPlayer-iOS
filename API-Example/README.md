@@ -124,3 +124,10 @@ Language: 中文简体 | [English](README-EN.md)
 ### **🧪 验证结果**
 应用启动后将进入主功能菜单页面，点击任意功能项即可跳转至对应的播放演示页面。
 
+## **📌 快速接入**
+
+下图展示了播放器 SDK 的几大接入步骤，助您快速实现视频起播：
+
+![BasicPlayback](BasicPlayback/Wikis/BasicPlayback.png)
+
+> 更多详情请参考官网《快速开始》文档：[iOS 播放器快速开始](https://help.aliyun.com/zh/vod/developer-reference/ios-player-quick-start)

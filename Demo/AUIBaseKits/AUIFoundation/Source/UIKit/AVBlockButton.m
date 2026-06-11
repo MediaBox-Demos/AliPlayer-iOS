@@ -24,6 +24,12 @@
     return self;
 }
 
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    
+    [self updateBorderColor];
+}
+
 - (void)setClickBlock:(void (^)(AVBlockButton * _Nonnull))clickBlock {
     _clickBlock = clickBlock;
     if (clickBlock) {
@@ -37,6 +43,81 @@
 - (void)onClickAction {
     if (self.clickBlock) {
         self.clickBlock(self);
+    }
+}
+
+- (void)setTouchDownBlock:(void (^)(AVBlockButton * _Nonnull))touchDownBlock {
+    _touchDownBlock = touchDownBlock;
+    if (touchDownBlock) {
+        [self addTarget:self action:@selector(onTouchDownAction) forControlEvents:UIControlEventTouchDown];
+    } else {
+        [self removeTarget:self action:@selector(onTouchDownAction) forControlEvents:UIControlEventTouchDown];
+    }
+}
+
+- (void)onTouchDownAction {
+    if (self.touchDownBlock) {
+        self.touchDownBlock(self);
+    }
+}
+
+- (void)setTouchDragEnterBlock:(void (^)(AVBlockButton * _Nonnull))touchDragEnterBlock {
+    _touchDragEnterBlock = touchDragEnterBlock;
+    if (touchDragEnterBlock) {
+        [self addTarget:self action:@selector(onTouchDragEnterAction) forControlEvents:UIControlEventTouchDragEnter];
+    } else {
+        [self removeTarget:self action:@selector(onTouchDragEnterAction) forControlEvents:UIControlEventTouchDragEnter];
+    }
+}
+
+- (void)onTouchDragEnterAction {
+    if (self.touchDragEnterBlock) {
+        self.touchDragEnterBlock(self);
+    }
+}
+
+- (void)setTouchDragExitBlock:(void (^)(AVBlockButton * _Nonnull))touchDragExitBlock {
+    _touchDragExitBlock = touchDragExitBlock;
+    if (touchDragExitBlock) {
+        [self addTarget:self action:@selector(onTouchDragExitAction) forControlEvents:UIControlEventTouchDragExit];
+    } else {
+        [self removeTarget:self action:@selector(onTouchDragExitAction) forControlEvents:UIControlEventTouchDragExit];
+    }
+}
+
+- (void)onTouchDragExitAction {
+    if (self.touchDragExitBlock) {
+        self.touchDragExitBlock(self);
+    }
+}
+
+- (void)setTouchUpInsideBlock:(void (^)(AVBlockButton * _Nonnull))touchUpInsideBlock {
+    _touchUpInsideBlock = touchUpInsideBlock;
+    if (touchUpInsideBlock) {
+        [self addTarget:self action:@selector(onTouchUpInsideAction) forControlEvents:UIControlEventTouchUpInside];
+    } else {
+        [self removeTarget:self action:@selector(onTouchUpInsideAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+- (void)onTouchUpInsideAction {
+    if (self.touchUpInsideBlock) {
+        self.touchUpInsideBlock(self);
+    }
+}
+
+- (void)setTouchUpOutsideBlock:(void (^)(AVBlockButton * _Nonnull))touchUpOutsideBlock {
+    _touchUpOutsideBlock = touchUpOutsideBlock;
+    if (touchUpOutsideBlock) {
+        [self addTarget:self action:@selector(onTouchUpOutsideAction) forControlEvents:UIControlEventTouchUpOutside];
+    } else {
+        [self removeTarget:self action:@selector(onTouchUpOutsideAction) forControlEvents:UIControlEventTouchUpOutside];
+    }
+}
+
+- (void)onTouchUpOutsideAction {
+    if (self.touchUpOutsideBlock) {
+        self.touchUpOutsideBlock(self);
     }
 }
 
@@ -55,6 +136,9 @@
 }
 
 - (void)updateBorderColor {
+    if (self.borderColorDict.count == 0) {
+        return;
+    }
     NSUInteger state = UIControlStateNormal;
     if (self.isSelected) {
         state = state | UIControlStateSelected;

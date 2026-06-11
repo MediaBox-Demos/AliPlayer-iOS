@@ -13,6 +13,7 @@ FOUNDATION_EXPORT double AUIFoundationVersionNumber;
 //! Project version string for AUIFoundation.
 FOUNDATION_EXPORT const unsigned char AUIFoundationVersionString[];
 
+#import <AUIFoundation/AVDeviceAuth.h>
 #import <AUIFoundation/AVGlobalTimer.h>
 #import <AUIFoundation/AVStringFormat.h>
 #import <AUIFoundation/NSString+AVHelper.h>
@@ -39,6 +40,8 @@ FOUNDATION_EXPORT const unsigned char AUIFoundationVersionString[];
 #import <AUIFoundation/AVVideoPlayProgressView.h>
 #import <AUIFoundation/AVNetworkStatusView.h>
 #import <AUIFoundation/AVInputView.h>
+#import <AUIFoundation/AVSwitchBar.h>
+#import <AUIFoundation/AVVolumeBar.h>
 
 #import <AUIFoundation/AVCommentTextField.h>
 #import <AUIFoundation/AVCommentView.h>
@@ -56,6 +59,8 @@ FOUNDATION_EXPORT const unsigned char AUIFoundationVersionString[];
 
 #import <AUIFoundation/AVLoginViewController.h>
 #import <AUIFoundation/AVLoginManager.h>
+
+#import <AUIFoundation/AVQRCodeScanner.h>
 
 #import <AUIFoundation/AVTheme.h>
 #import <AUIFoundation/AVLocalization.h>

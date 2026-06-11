@@ -7,7 +7,7 @@ platform :ios, '9.0'
 def aliyun_uicom
   # 选取的SDK类型
   # 播放器SDK及版本，建议使用最新版本，详情参考官网：https://help.aliyun.com/zh/vod/developer-reference/release-notes-for-apsaravideo-player-sdk-for-ios
-  pod 'AliPlayerSDK_iOS', '~> 7.6.0'
+  pod 'AliPlayerSDK_iOS', '~> 7.15.0'
   
   pod "AUIPlayer/AliPlayerSDK_iOS", :path => "../"
   # 您可以根据自己的业务去调整使用的SDK，增加自己要使用的SDK；或者修改 AUIPlayer.podspec 中 AliPlayerSDK_iOS 版本

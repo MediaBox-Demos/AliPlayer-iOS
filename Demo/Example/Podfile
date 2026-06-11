@@ -5,32 +5,57 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 
 def aliyun_uicom
+  # 选取的SDK类型
+  # 播放器SDK及版本，建议使用最新版本，详情参考官网：https://help.aliyun.com/zh/vod/developer-reference/release-notes-for-apsaravideo-player-sdk-for-ios
+  pod 'AliPlayerSDK_iOS', '~> 7.6.0'
   
-    # 播放器SDK及版本，建议使用最新版本，详情参考官网：https://help.aliyun.com/zh/vod/developer-reference/release-notes-for-apsaravideo-player-sdk-for-ios
-    pod 'AliPlayerSDK_iOS', '~> 7.4.0'
-    
-    pod "AUIPlayer/All", :path => "../"
-    pod "AUIPlayer/AliPlayerSDK_iOS", :path => "../"
-    
-    pod "AUIFoundation/All", :path => "../AUIBaseKits/AUIFoundation"
-    pod 'SDWebImage', '5.18.1'
-
+  pod "AUIPlayer/AliPlayerSDK_iOS", :path => "../"
+  # 您可以根据自己的业务去调整使用的SDK，增加自己要使用的SDK；或者修改 AUIPlayer.podspec 中 AliPlayerSDK_iOS 版本
+#  pod "AUIPlayer/AliVCSDK_Standard", :path => "../"
+  
+  # AUI基础组件（必需）
+  pod "AUIFoundation/All", :path => "../AUIBaseKits/AUIFoundation"
+  
+  #导航页 （包含全屏播放）
+  pod "AUIPlayer/Main", :path => "../"
+  
+  #信息流
+  pod "AUIPlayer/VideoFlow", :path => "../"
+  
+  # 短剧列表播放组件
+  pod "AUIPlayer/AUIPlayerKits", :path => "../"
+  
+  # 短剧场景（包含剧场/Feed流）两个模块，可单独集成。
+  pod "AUIPlayer/AUIPlayerScenes", :path => "../"
+  # 短剧剧场场景
+#  pod "AUIPlayer/AUIPlayerScenes/AUIShortDramaList", :path => "../"
+  # 短剧Feeds流场景
+#  pod "AUIPlayer/AUIPlayerScenes/AUIShortDramaFeeds", :path => "../"
+  
+  #后台设置页
+  pod "AUIPlayer/AUIPlayerSettings", :path => "../"
+  
 end
 
+
 def common_demo_pods
+  # 可自定义第三方库版本
+  pod 'SDWebImage', '5.18.1'
 end
 
 
 target 'AlivcPlayerDemo' do
   
-    common_demo_pods
-    aliyun_uicom
-
+  common_demo_pods
+  
+  aliyun_uicom
 end
+
 
 post_install do |installer|
     installer.pods_project.build_configurations.each do |config|
         config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
         config.build_settings['CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER'] = 'NO'
+        config.build_settings['ENABLE_USER_SCRIPT_SANDBOXING'] = 'NO'
     end
 end

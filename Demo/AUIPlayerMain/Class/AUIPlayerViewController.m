@@ -7,49 +7,53 @@
 
 #import "AUIPlayerViewController.h"
 #import "AUIVideoFlowModule.h"
-#import "AUIVideoListModule.h"
 #import "AUIVideoFullScreenModule.h"
-#import "AUIShortEpisodeViewController.h"
-#import "AUIVideoCacheGlobalSetting.h"
+#import "AUIBackstageViewController.h"
 
-@interface AUIPlayerViewController ()
+@interface AUIPlayerViewController () <AUIShortVideoDataProviderDelegate>
 
 @end
 
 @implementation AUIPlayerViewController
 
 - (instancetype)init {
-   AVCommonListItem *item1 = [AVCommonListItem new];
-   item1.title = AlivcPlayerString(@"信息流播放");
-   item1.info = AlivcPlayerString(@"适用于新闻资讯、社区互动等短视频场景");
-   item1.icon = AlivcPlayerImage(@"bofangqi_ic_xinxi");
-   
-   AVCommonListItem *item2 = [AVCommonListItem new];
-   item2.title = AlivcPlayerString(@"沉浸式播放");
-   item2.info = AlivcPlayerString(@"竖屏短视频场景，全屏秒开最佳实践");
-   item2.icon = AlivcPlayerImage(@"bofangqi_ic_chenjin");
+    AVCommonListItem *flowFeedItem = [AVCommonListItem new];
+    flowFeedItem.title = AlivcPlayerString(@"信息流播放");
+    flowFeedItem.info = AlivcPlayerString(@"适用于新闻资讯、社区互动等短视频场景");
+    flowFeedItem.icon = AlivcPlayerImage(@"bofangqi_ic_xinxi");
     
-   AVCommonListItem *item3 = [AVCommonListItem new];
-   item3.title = AlivcPlayerString(@"沉浸式播放");
-   item3.info = AlivcPlayerString(@"竖屏短视频场景，标准实现");
-   item3.icon = AlivcPlayerImage(@"bofangqi_ic_chenjin");
+    AVCommonListItem *shortDramaListItem = [AVCommonListItem new];
+    shortDramaListItem.title = AlivcPlayerString(@"短剧剧场");
+    shortDramaListItem.info = AlivcPlayerString(@"适用于短剧剧场场景");
+    shortDramaListItem.icon = AlivcPlayerImage(@"bofangqi_ic_chenjin");
     
-    AVCommonListItem *item4 = [AVCommonListItem new];
-    item4.title = AlivcPlayerString(@"短剧播放");
-    item4.info = AlivcPlayerString(@"适用于多个视频间流畅切换的短视频场景");
-    item4.icon = AlivcPlayerImage(@"bofangqi_ic_quanping");
-   
-   AVCommonListItem *item5 = [AVCommonListItem new];
-    item5.title = AlivcPlayerString(@"全屏播放");
-    item5.info = AlivcPlayerString(@"适用于版权视频等长视频场景");
-    item5.icon = AlivcPlayerImage(@"bofangqi_ic_zidingyi");
-   
-   NSArray *list = @[item1, item2, item3, item4, item5];
-   
-   self = [super initWithItemList:list];
-   if (self) {
-   }
-   return self;
+    AVCommonListItem *shortDramaFeedsItem = [AVCommonListItem new];
+    shortDramaFeedsItem.title = AlivcPlayerString(@"短剧Feeds流");
+    shortDramaFeedsItem.info = AlivcPlayerString(@"适用于短剧Feeds流场景");
+    shortDramaFeedsItem.icon = AlivcPlayerImage(@"bofangqi_ic_quanping");
+
+    AVCommonListItem *shortVideoListItem = [AVCommonListItem new];
+    shortVideoListItem.title = AlivcPlayerString(@"沉浸式播放");
+    shortVideoListItem.info = AlivcPlayerString(@"竖屏短视频场景，全屏秒开最佳实践");
+    shortVideoListItem.icon = AlivcPlayerImage(@"bofangqi_ic_zidingyi");
+
+    AVCommonListItem *fullScreenItem = [AVCommonListItem new];
+    fullScreenItem.title = AlivcPlayerString(@"全屏播放");
+    fullScreenItem.info = AlivcPlayerString(@"适用于版权视频等长视频场景");
+    fullScreenItem.icon = AlivcPlayerImage(@"bofangqi_ic_zidingyi");
+    
+    NSArray *list = @[
+        flowFeedItem,
+        shortDramaListItem,
+        shortDramaFeedsItem,
+        shortVideoListItem,
+        fullScreenItem,
+    ];
+
+    self = [super initWithItemList:list];
+    if (self) {
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
@@ -60,14 +64,13 @@
     self.menuButton.av_left = self.headerView.av_width - 20 - 80;
     self.menuButton.av_width = 80;
     [self.menuButton setImage:nil forState:UIControlStateNormal];
-    [self.menuButton setTitle:AlivcPlayerString(@"清空缓存") forState:UIControlStateNormal];
+    [self.menuButton setTitle:AlivcPlayerString(@"设置") forState:UIControlStateNormal];
 
    self.titleView.text = AlivcPlayerString(@"播放器");
 }
 
 - (void)onMenuClicked:(UIButton *)sender {
-    [AUIVideoCacheGlobalSetting clearCaches];
-    [AVToastView show:@"已清除缓存" view:self.view position:AVToastViewPositionMid];
+    [self openBackstage];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -80,17 +83,17 @@
             break;
         case 1:
         {
-            [self openVideoFunctionList];
+            [self openShortDramaList];
         }
             break;
         case 2:
         {
-            [self openVideoStandradList];
+            [self openShortDramaFeeds];
         }
             break;
         case 3:
         {
-            [self openVideoShortEpisode];
+            [self openShortVideoList];
         }
             break;
         case 4:
@@ -108,24 +111,69 @@
     [module open];
 }
 
-- (void)openVideoFunctionList {
-    AUIVideoListModule *module = [[AUIVideoListModule alloc] initWithSourceViewController:self];
-    [module openFunctionListPage];
+- (void)openShortVideoList {
+    AUIShortVideoListViewController *vc = [[AUIShortVideoListViewController alloc] initWithDataProvider:self];
+    [vc enableRefresh:YES];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)openVideoStandradList {
-    AUIVideoListModule *module = [[AUIVideoListModule alloc] initWithSourceViewController:self];
-    [module openStandradListPage];
+- (void)openShortDramaList {
+    AUIShortDramaListViewController *vc = [[AUIShortDramaListViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)openVideoShortEpisode {
-    AUIShortEpisodeViewController *vc = [[AUIShortEpisodeViewController alloc] init];
+- (void)openShortDramaFeeds {
+    AUIShortDramaFeedsViewController *vc = [[AUIShortDramaFeedsViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)openVideoFullScreen {
     AUIVideoFullScreenModule *module = [[AUIVideoFullScreenModule alloc] initWithSourceViewController:self];
     [module open];
+}
+
+- (void)openBackstage {
+    AUIBackstageViewController *vc = [[AUIBackstageViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - AUIShortVideoDataProviderDelegate
+
+// 请求额外数据的方法
+- (void)loadData:(id)controller {
+    __weak typeof(self) weakSelf = self;  // 弱引用 self
+    [AUIShortVideoListDataManager requestVideoInfoList:AUIShortVideoListConstants.defaultVideoInfoListURL completed:^(NSArray<AUIShortVideoInfo *> * _Nullable data, NSError * _Nullable error) {
+        if (error) {
+            __strong typeof(weakSelf) strongSelf = weakSelf; // 强引用 self
+            [AVToastView show:[NSString stringWithFormat:@"Unable to retrieve short video list, error: %@", error.localizedDescription]
+                         view:strongSelf.view
+                     position:AVToastViewPositionMid];
+            return;
+        }
+        
+        // 调用相应子视图控制器的 appendVideoInfoList: 方法
+        if (controller && [controller respondsToSelector:@selector(appendVideoInfoList:)]) {
+            [controller appendVideoInfoList:data];
+        }
+    }];
+}
+
+- (void)refreshData:(id)controller{
+    __weak typeof(self) weakSelf = self;  // 弱引用 self
+    [AUIShortVideoListDataManager requestVideoInfoList:AUIShortVideoListConstants.defaultVideoInfoListURL completed:^(NSArray<AUIShortVideoInfo *> * _Nullable data, NSError * _Nullable error) {
+        if (error) {
+            __strong typeof(weakSelf) strongSelf = weakSelf; // 强引用 self
+            [AVToastView show:[NSString stringWithFormat:@"Unable to retrieve short video list, error: %@", error.localizedDescription]
+                         view:strongSelf.view
+                     position:AVToastViewPositionMid];
+            return;
+        }
+        
+        // 调用相应子视图控制器的 appendVideoInfoList: 方法
+        if (controller && [controller respondsToSelector:@selector(resetVideoInfoList:)]) {
+            [controller resetVideoInfoList:data];
+        }
+    }];
 }
 
 @end

@@ -1,0 +1,16 @@
+
+"Loading..." = "加载中...";
+"Unable to retrieve playlist, playback failed." = "无法拉取播放列表，播放失败";
+"This feature is not supported yet and needs to be implemented." = "暂不支持该功能，需要自己实现";
+"Set Video Speed" = "设置倍速：";
+"Switching resolution" = "清晰度切换中：";
+"Clarity switch successful" = "清晰度已切换：";
+"advertisement page" = "广告页";
+"increased speed" = "倍速播放中";
+"video quality" = "视频质量：";
+"playback speed" = "视频倍速：";
+"playback settings" = "播放设置";
+"continue watching" = "继续观看";
+"watch the complete short play" = "观看完整短剧";
+"Series" = "剧集";
+"series selection" = "剧集选择";

@@ -8,7 +8,7 @@ Aliyun Video Cloud Player SDK Sample Code
 
 This project does not include an official license. Please complete the following configuration to enable full functionality.
 
-### **✅ Pre-deployment Setup**
+### ✅ Pre-deployment Setup
 
 1. **Obtain and Integrate License**
 
@@ -36,21 +36,7 @@ This project does not include an official license. Please complete the following
 
 > **⚠️ Note**: If the license is not configured correctly, player functionality may be limited or unavailable.
 
-------
-
-## **Short Drama Demo Source Code Announcement**
-
-This version is the old Short Drama Scenario Demo source code released before October 2024. Alibaba Cloud officially released the latest version of the "Micro-Drama Scenario Multi-Instance Demo" in February 2025, which includes the complete source code. Compared with the old version, the new Demo features higher integration ease of use, smoother playback experience, and achieves the optimal balance in playback performance and user experience.
-
-The old version of the Short Drama Scenario Demo source code in the current directory is no longer updated or maintained. If you need to obtain the latest "Micro-Drama Scenario Multi-Instance Demo," please purchase the Professional Player License first and submit a ticket to contact us for the Demo source code. For details, see:
-
-[Integrate the Latest "Micro-Drama Scenario Multi-Instance Demo"](https://help.aliyun.com/zh/vod/use-cases/micro-drama-integration-ios-player-sdk?spm=a2c4g.11186623.help-menu-29932.d_3_0_0_1_1.6afd523cYfdJM7)
-
-[Obtain the Player SDK Professional License](https://help.aliyun.com/zh/vod/developer-reference/obtain-the-player-sdk-license?spm=a2c4g.11186623.help-menu-search-29932.d_15)
-
-------
-
-## **Code Structure**
+## Code Structure
 
 ```
 ├── Root Directory                            // Demo root directory
@@ -61,18 +47,18 @@ The old version of the Short Drama Scenario Demo source code in the current dire
 │   ├── README.md                            // Readme   
 ```
 
-## **Environment Requirements**
+## Environment Requirements
 
 - Xcode 12.0 or later (latest stable version recommended)
 - CocoaPods 1.9.3 or later
 - iOS device running iOS 10.0 or above
 
-## **Prerequisites**
+## Prerequisites
 
 To obtain the SDK license and key, playback authorization is required.
  Refer to [Get License](https://help.aliyun.com/zh/vod/developer-reference/license-authorization-and-management).
 
-## **Running the Example Demo**
+## Running the Example Demo
 
 1. After downloading the source code, unzip and enter the `AlivcPlayerDemo` directory.
 2. Modify the player SDK version in the Podfile to the latest version. For the version number, refer to [iOS Player SDK](https://help.aliyun.com/zh/vod/developer-reference/release-notes-for-apsaravideo-player-sdk-for-ios).

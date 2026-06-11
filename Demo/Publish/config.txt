@@ -1,0 +1,28 @@
+start
+
+cp /AUIPlayer.podspec  /AUIPlayer.podspec
+cp /README.md  /README.md
+cp /LICENSE  /LICENSE
+
+mk AUIBaseKits
+cp /AUIBaseKits/AUIFoundation  /AUIBaseKits/AUIFoundation
+
+cp /AUIPlayerMain  /AUIPlayerMain
+cp /AUIVideoFlow  /AUIVideoFlow
+cp /AUIVideoList  /AUIVideoList
+
+mk AUIShortEpisode
+cp /AUIShortEpisode/Resources  /AUIShortEpisode/Resources
+cp /AUIShortEpisode/Source  /AUIShortEpisode/Source
+
+mk Example
+cp /Example/AlivcPlayerDemo  /Example/AlivcPlayerDemo
+cp /Example/AlivcPlayerDemo.xcodeproj  /Example/AlivcPlayerDemo.xcodeproj
+cp /Example/AlivcPlayerDemo.xcworkspace  /Example/AlivcPlayerDemo.xcworkspace
+cp /Example/Podfile  /Example/Podfile
+
+rm /Example/AlivcPlayerDemo/license.crt
+
+sh /Publish/sed.sh
+
+end

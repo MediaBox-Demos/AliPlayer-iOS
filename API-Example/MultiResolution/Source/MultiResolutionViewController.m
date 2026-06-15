@@ -117,6 +117,8 @@
  */
 - (void)cleanupPlayer {
     if (self.player) {
+        // 解绑播放器视图
+        self.player.playerView = nil;
         // 停止继续播放
         [self.player stop];
         // 销毁播放器

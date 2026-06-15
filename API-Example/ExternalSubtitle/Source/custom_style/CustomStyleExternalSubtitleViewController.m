@@ -643,6 +643,8 @@ static const NSInteger kVideoStartTimeMills = 17 * 1000;
  */
 - (void)cleanupPlayer {
     if (self.player) {
+        // 解绑播放器视图
+        self.player.playerView = nil;
         // 9.1 停止播放
         [self.player stop];
 

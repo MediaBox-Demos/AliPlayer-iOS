@@ -323,6 +323,8 @@ const CGFloat THUMB_HEIGHT = 192;
  */
 - (void)cleanupPlayer {
     if (self.player) {
+        // 解绑播放器视图
+        self.player.playerView = nil;
         // 8.1 停止播放
         [self.player stop];
 

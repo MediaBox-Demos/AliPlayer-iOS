@@ -355,6 +355,8 @@
  */
 - (void)cleanupPlayer {
     if (self.player) {
+        // 解绑播放器视图
+        self.player.playerView = nil;
         [self.player stop];
         [self.player setRenderingDelegate:nil];
         [self.player destroy];

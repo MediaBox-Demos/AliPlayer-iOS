@@ -200,7 +200,13 @@
  */
 - (void)destroy {
     if (self.player) {
+        // 解绑播放器视图
+        self.player.playerView = nil;
+        
+        // 停止播放
         [self.player stop];
+        
+        // 销毁播放器
         [self.player destroy];
 
         self.player = nil;

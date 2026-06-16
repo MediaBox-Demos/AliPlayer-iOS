@@ -163,6 +163,8 @@
  */
 - (void)cleanupPlayer {
     if (self.player) {
+        // 解绑播放器视图
+        self.player.playerView = nil;
         // 4.1 停止当前播放任务
         [self.player stop];
 

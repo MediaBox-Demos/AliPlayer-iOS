@@ -30,6 +30,9 @@ AliPlayer-iOS/
 ├── SDK/                              # SDK files and documentation
 │   ├── README.md                     # SDK user guide (Chinese)
 │   └── README-EN.md                  # SDK user guide (English)
+├── PlayerKit/                        # Player UI integration solution
+│   ├── README.md                     # PlayerKit guide (Chinese)
+│   └── README-EN.md                  # PlayerKit guide (English)
 ├── README.md                         # Project description (Chinese)
 ├── README-EN.md                      # Project description (English)
 └── LICENSE                           # Open source license
@@ -48,6 +51,10 @@ AliPlayer-iOS/
 * **📦 SDK - Player SDK Resources**
 
   Contains complete integration guide, API documentation and troubleshooting resources for ApsaraVideo Player SDK.
+
+* **🎨 PlayerKit - Player UI Integration Solution**
+
+  Provides low-code, extensible player UI components and scenario-based solutions for rapid integration.
 
 ---
 
@@ -69,6 +76,7 @@ Choose the project that suits your needs:
 | **Demo**                  | Complete feature experience and scenario demonstration | [View Demo Setup Guide](./Demo/README-EN.md)                 |
 | **API-Example**           | Single feature learning and API verification           | [View API-Example Setup Guide](./API-Example/README-EN.md)   |
 | **Swift-Call-OC-Example** | Swift calling Objective-C example project              | [View Swift-Call-OC-Example Setup Guide](./Swift-Call-OC-Example/README-EN.md) |
+| **PlayerKit**             | Low-code player UI integration                         | [View PlayerKit Guide](./PlayerKit/README-EN.md)             |
 
 ---
 

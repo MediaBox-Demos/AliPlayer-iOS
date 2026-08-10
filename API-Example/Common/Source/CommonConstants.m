@@ -53,11 +53,10 @@ NSString *const kSampleSwitchLiveStreamVideoURL = @"";
 // URL of the RTS Live-stream
 // FIXME: Need to fill in the artc live stream, otherwise it will affect the rts module
 NSString *const kRTSLiveStreamURL = @"";
-// URL of the sample thumbnail
-NSString *const kSampleVideoThumbnailURL = @"https://alivc-demo-vod.aliyuncs.com/sv/5f2e5b7f-191dbfe2558/5f2e5b7f-191dbfe2558.mp4";
-// URL of the sample thumbnail
-NSString *const kSampleThumbnailURL = @"https://llk-beijng.oss-cn-beijing.aliyuncs.com/vod-e3ddeb/005d826e483171f0bfb316b5feac0102/snapshots/webvtt/15483839-19768706593-1833-2022-301-08227.vtt";
-
+// Vid of the sample thumbnail
+NSString *const kSampleVideoThumbnailVid = @"80b6301d909371f1aa965017f0e80402";
+// PlayAuth of the sample thumbnail
+NSString *const kSampleVideoThumbnailAuth = @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImFwcC0xMDAwMDAwIiwidmlkZW9JZCI6IjgwYjYzMDFkOTA5MzcxZjFhYTk2NTAxN2YwZTgwNDAyIiwiY3VycmVudFRpbWVTdGFtcCI6MTc4NTkwOTgxMTY4MiwiZXhwaXJlVGltZVN0YW1wIjoxOTQzNTg5ODExNjgyLCJyZWdpb25JZCI6ImNuLXNoYW5naGFpIiwicGxheUNvbnRlbnRJbmZvIjp7InN0cmVhbVR5cGUiOiJ2aWRlbyIsImFwaVZlcnNpb24iOiIxLjAuMiIsImF1dGhUaW1lb3V0IjoyODAwMH19.gQN7Iq7ufZXIUbJ8-JAfPI5NmDGIIfZhWUCSXFafMT0";
 // URL of the sample video external subtitle
 NSString *const kSampleVideoExternalSubtitleURL = @"https://alivc-demo-vod.aliyuncs.com/6b357371ef3c45f4a06e2536fd534380/53733986bce75cfc367d7554a47638c0-fd.mp4";
 // URL of the sample subtitle vtt file

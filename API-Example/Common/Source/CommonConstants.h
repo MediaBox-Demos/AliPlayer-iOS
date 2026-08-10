@@ -74,10 +74,10 @@ extern NSString *const kSampleLiveStreamVideoURL;
 extern NSString *const kSampleSwitchLiveStreamVideoURL;
 // URL of the RTS video file
 extern NSString *const kRTSLiveStreamURL;
-// URL of the sample thumbnail
-extern NSString *const kSampleThumbnailURL;
-// URL of the sample video thumbnail
-extern NSString *const kSampleVideoThumbnailURL;
+// Vid of the sample thumbnail
+extern NSString *const kSampleVideoThumbnailVid;
+// PlayAuth of the sample video thumbnail
+extern NSString *const kSampleVideoThumbnailAuth;
 // URL of the sample video external subtitle
 extern NSString *const kSampleVideoExternalSubtitleURL;
 // URL of the sample subtitle vtt file

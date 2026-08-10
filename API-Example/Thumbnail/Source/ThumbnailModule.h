@@ -10,16 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * @brief 缩略图模块入口
+ * 负责处理 schema 跳转，打开缩略图功能演示页面。
+ */
 @interface ThumbnailModule : NSObject
 
 /**
- * @brief Handle URL navigation
- * @note 处理URL导航
+ * @brief 处理 URL 导航
  *
- * @param url The URL to handle
- * @param viewController The source view controller
+ * @param url 需要处理的 URL
+ * @param viewController 源视图控制器
  *
- * @return YES if handled successfully, NO otherwise
+ * @return 处理成功返回 YES，否则返回 NO
  */
 + (BOOL)handleURL:(NSString *)url fromVC:(UIViewController *)viewController;
 

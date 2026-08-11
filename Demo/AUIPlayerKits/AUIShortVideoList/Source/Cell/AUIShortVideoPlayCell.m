@@ -27,7 +27,7 @@
 @property (nonatomic, strong) UILabel *durationLabel;
 
 @property (nonatomic, strong) AUIShortVideoInteractiveView *interactiveView;
-@property (nonatomic, strong) AVBaseButton *dramaBtn;
+@property (nonatomic, strong) AVBaseButton *playlistBtn;
 @property (nonatomic, strong) UIButton *settingBtn;
 @property (nonatomic, strong) AVBlockButton *backButton;
 
@@ -217,18 +217,18 @@
     }];
     [self.contentView addSubview:self.interactiveView];
     
-    self.dramaBtn = [[AVBaseButton alloc] initWithType:AVBaseButtonTypeImageText titlePos:AVBaseButtonTitlePosBottom];
-    self.dramaBtn.image = SVCommonImage(@"ic_drama");
-    self.dramaBtn.title = SVString(@"Series");
-    self.dramaBtn.font = AVGetRegularFont(11);
-    self.dramaBtn.action = ^(AVBaseButton * _Nonnull btn) {
+    self.playlistBtn = [[AVBaseButton alloc] initWithType:AVBaseButtonTypeImageText titlePos:AVBaseButtonTitlePosBottom];
+    self.playlistBtn.image = SVCommonImage(@"ic_playlist");
+    self.playlistBtn.title = SVString(@"Series");
+    self.playlistBtn.font = AVGetRegularFont(11);
+    self.playlistBtn.action = ^(AVBaseButton * _Nonnull btn) {
         // 获取强引用以避免过早释放 self
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (strongSelf.onSelectionBlock) {
             strongSelf.onSelectionBlock(strongSelf);
         }
     };
-    [self.contentView addSubview:self.dramaBtn];
+    [self.contentView addSubview:self.playlistBtn];
     
     self.settingBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.interactiveView.frame.origin.x, self.interactiveView.frame.origin.y, 50,50)];
     self.settingBtn.frame = CGRectMake(0, 0, 50, 50);
@@ -291,7 +291,7 @@
     
     self.interactiveView.frame = CGRectMake(self.contentView.av_width - 60, y - 60 * 2, 60, 60 * 3);
     
-    self.dramaBtn.frame = CGRectMake(self.contentView.av_width - 48 - 4, self.interactiveView.av_bottom + 12, 48, 48);
+    self.playlistBtn.frame = CGRectMake(self.contentView.av_width - 48 - 4, self.interactiveView.av_bottom + 12, 48, 48);
     
     self.backButton.frame = CGRectMake(20, AVSafeTop + 20, 26, 26);
 }
@@ -440,9 +440,9 @@
 
     });
     
-    NSInteger videoId = self.videoInfo ? self.videoInfo.videoId : -1;
+    NSString* videoId = self.videoInfo ? self.videoInfo.playlistId : @"-1";
     // 记录封面图显示隐藏的日志
-    SLOGI(@"[COVER][API][SHOW][%@][%ld]", enable ? @"YES" : @"NO", videoId);
+    SLOGI(@"[COVER][API][SHOW][%@][%@]", enable ? @"YES" : @"NO", videoId);
 }
 
 // 加载并显示视频封面图，只有在启用了封面 URL 策略的情况下，并且 videoInfo 和封面 URL 是有效的时，才会尝试加载封面图。
@@ -462,7 +462,7 @@
         return;
     }
     
-    NSInteger videoId = self.videoInfo.videoId;
+    NSString* videoId = self.videoInfo.playlistId;
     // 生成封面图的 URL
     NSURL *imageURL = [NSURL URLWithString:self.videoInfo.coverUrl];
     
@@ -471,15 +471,15 @@
                               completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (error) {
             // 加载失败时记录错误信息
-            SLOGE(@"[COVER][CBK][LOAD][ERROR][%ld], %@", videoId, error.localizedDescription);
+            SLOGE(@"[COVER][CBK][LOAD][ERROR][%@], %@", videoId, error.localizedDescription);
         } else {
             // 加载成功时记录成功信息
-            SLOGI(@"[COVER][CBK][LOAD][SUCCESS][%ld]", videoId);
+            SLOGI(@"[COVER][CBK][LOAD][SUCCESS][%@]", videoId);
         }
     }];
     
     // 记录加载开始的日志
-    SLOGI(@"[COVER][API][LOAD][%ld]", videoId);
+    SLOGI(@"[COVER][API][LOAD][%@]", videoId);
 }
 
 

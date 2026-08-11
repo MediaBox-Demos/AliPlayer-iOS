@@ -8,7 +8,21 @@ Language: [中文简体](README.md) | English
 
 ## **📌 Overview**
 
-AliPlayerKit is Alibaba Cloud's **player UI integration solution** for video applications, offering **low-code, extensible player UI components** and **scenario-based solutions**. By encapsulating player capabilities and UI interactions, it enables rapid development of app playback features with minimal integration effort — no need to call underlying player APIs directly or build complex player UIs from scratch.
+**AliPlayerKit** is Alibaba Cloud's **player UI integration solution** for video applications, offering **low-code, extensible player UI components** and **scenario-based solutions**.
+
+<p align="center">
+  <img
+    src="https://alivc-demo-cms.alicdn.com/versionProduct/installPackage/AliPlayerKit/playerkit-ui-preview.png"
+    alt="AliPlayerKit UI preview"
+    width="100%"
+  />
+</p>
+
+<p align="center">
+  <sub>Ready-to-use player UI components for multiple playback scenarios</sub>
+</p>
+
+By encapsulating player capabilities and UI interactions, it enables rapid development of app playback features with minimal integration effort — no need to call underlying player APIs directly or build complex player UIs from scratch.
 
 ---
 
@@ -18,6 +32,13 @@ AliPlayerKit is Alibaba Cloud's **player UI integration solution** for video app
 - 🎨 **Rich UI Components** - Out-of-the-box player UI with customizable themes and slot system
 - 📱 **Scenario-based Solutions** - Built-in scenarios for mid/long video, short video, live streaming, playlists, etc.
 - 🔧 **Highly Extensible** - Slot system for flexible UI composition, strategy system for business logic extension
+- 🌐 **Unified Cross-platform Architecture** - Shared design philosophy and API semantics across platforms, reducing multi-platform integration and maintenance costs
+
+| Platform | Description | Source | Docs |
+|----------|-------------|--------|------|
+| **Android** | Native Android player UI components & scenario solutions | [PlayerKit-Android](https://github.com/aliyun/PlayerKit-Android) | [Online Docs](https://aliyun.github.io/PlayerKit-Android/) |
+| **iOS** | Native iOS player UI components & scenario solutions | [PlayerKit-iOS](https://github.com/aliyun/PlayerKit-iOS) | [Online Docs](https://aliyun.github.io/PlayerKit-iOS/) |
+| **Flutter** | Cross-platform Flutter player widget | [player_widget](https://github.com/aliyun/player_widget) | [Online Docs](https://aliyun.github.io/player_widget/) |
 
 ------
 

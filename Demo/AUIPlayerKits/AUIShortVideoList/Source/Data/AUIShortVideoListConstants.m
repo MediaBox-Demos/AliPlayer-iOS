@@ -9,16 +9,6 @@
 
 @implementation AUIShortVideoListConstants
 
-#pragma mark - VideoInfoListURL
-
-// 示例视频信息列表的 URL - 网络视频源（默认）
-static NSString * const kDefaultVideoInfoListURL = @"https://alivc-demo-cms.alicdn.com/versionProduct/resources/shortdrama/video-info-list-default.json";
-
-// 默认视频信息列表 URL
-+ (NSString *)defaultVideoInfoListURL {
-    return kDefaultVideoInfoListURL; // 返回默认视频信息列表的 URL
-}
-
 #pragma mark - PlayerPoolCapacity
 
 // 播放器池容量的默认值

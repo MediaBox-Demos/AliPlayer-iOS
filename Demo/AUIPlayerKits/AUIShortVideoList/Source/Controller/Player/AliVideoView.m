@@ -101,7 +101,7 @@
 
 // 绑定新的视频信息到播放器
 - (void)bind:(AUIShortVideoInfo *)videoInfo {
-    if (!videoInfo || ![AUIShortVideoListUtils isValidURLString:videoInfo.url]) {
+    if (!videoInfo) {
         return;
     }
     
@@ -114,7 +114,7 @@
 // 绑定视频播放器
 - (void)bindVideoPlayer {
     // 检查视频信息和URL是否有效，以确保可以通过有效的索引从播放器池获取播放器实例
-    if (!self.videoInfo || ![AUIShortVideoListUtils isValidURLString:self.videoInfo.url]) {
+    if (!self.videoInfo) {
         return;
     }
     
@@ -147,9 +147,15 @@
     [self.aliPlayer setOption:ALLOW_DECODE_BACKGROUND valueInt:1];
     
     // 设置播放视频源
-    AVPUrlSource *urlSource = [[AVPUrlSource alloc] urlWithString:self.videoInfo.url];
-    [self.aliPlayer setUrlSource:urlSource];
-    SLOGI(@"[player][API][setUrlSource], %@, %@, %@", self.aliPlayer, self.videoInfo.url, urlSource);
+    
+    AVPVidAuthSource *authSource =  [[AVPVidAuthSource alloc]init];
+    [authSource setVid:self.videoInfo.videoId];
+    [authSource setPlayAuth:self.videoInfo.playAuth];
+    
+    SLOGI(@"[VidAuth][Vid]\n %@ [playAuth]  %@", self.videoInfo.playlistId,self.videoInfo.playAuth);
+    
+    [self.aliPlayer setAuthSource:authSource];
+    SLOGI(@"[player][API][setAuthSource], %@, %@, %@", self.aliPlayer, self.videoInfo.playUrl, authSource);
     
     // 标记当前播放器已准备，防止重复调用
     // NOTE: @keria, 防止重复 prepare，导致 prepare 耗时较大；影响滑动体验
@@ -161,7 +167,6 @@
         [self.aliPlayer setDefaultBandWidth:self.selectedTrackBitrate];
     }
     
-    
     // 准备播放器，强制预渲染首帧图
     [self.aliPlayer prepare];
     SLOGI(@"[player][API][prepare], %@, DefaultBandWidth=%d", self.aliPlayer, self.selectedTrackBitrate);
@@ -172,7 +177,7 @@
     SLOGI(@"[API][UNBIND][%@]", self);
     
     // 将播放器实例与视图解绑，并通知播放器池可以回收该实例
-    if (self.videoInfo && [AUIShortVideoListUtils isValidURLString:self.videoInfo.url]) {
+    if (self.videoInfo) {
         [[AliPlayerPool sharedInstance] recycle:[NSString stringWithFormat:@"%ld",self.videoInfo.hash]];
     }
     
@@ -305,7 +310,7 @@
     switch (eventType) {
         case AVPEventPrepareDone: {
             SLOGI(@"[player][CBK][PlayerEvent][PrepareDone], %@", player);
-                        
+            
             if (self.delegate && [self.delegate respondsToSelector:@selector(onPrepared:)]) {
                 [self.delegate onPrepared:self];
             }
@@ -335,9 +340,6 @@
             
             break;
         }
-            
-        
-            
         default: {
             SLOGI(@"[player][CBK][PlayerEvent][%lu], %@", (unsigned long)eventType, player);
             break;

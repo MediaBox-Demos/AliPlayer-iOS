@@ -77,20 +77,20 @@ Pod::Spec.new do |s|
   
   # Player Scenes subspec for room management and scene display
   s.subspec "AUIPlayerScenes" do |ss|
-    ## Subspec for AUIShortDramaList
-    ss.subspec "AUIShortDramaList" do |sss|
-      sss.source_files = 'AUIPlayerScenes/AUIShortDramaList/Source/**/*.{h,m,mm}'
-      sss.resource = 'AUIPlayerScenes/AUIShortDramaList/Resources/AUIShortDramaList.bundle'
+    ## Subspec for AUIShortPlaylistList
+    ss.subspec "AUIShortPlaylistTheater" do |sss|
+      sss.source_files = 'AUIPlayerScenes/AUIShortPlaylistTheater/Source/**/*.{h,m,mm}'
+      sss.resource = 'AUIPlayerScenes/AUIShortPlaylistTheater/Resources/AUIShortPlaylistTheater.bundle'
       sss.dependency 'AUIPlayer/AUIPlayerKits/AUIShortVideoList'
-      sss.prefix_header_contents = '#import "AUIShortDramaList.h"'
+      sss.prefix_header_contents = '#import "AUIShortPlaylistTheater.h"'
     end
     
-    ## Subspec for AUIShortDramaFeeds
-    ss.subspec "AUIShortDramaFeeds" do |sss|
-      sss.source_files = 'AUIPlayerScenes/AUIShortDramaFeeds/Source/**/*.{h,m,mm}'
-      sss.resource = 'AUIPlayerScenes/AUIShortDramaFeeds/Resources/AUIShortDramaFeeds.bundle'
+    ## Subspec for AUIShortPlaylistFeeds
+    ss.subspec "AUIShortPlaylistFeeds" do |sss|
+      sss.source_files = 'AUIPlayerScenes/AUIShortPlaylistFeeds/Source/**/*.{h,m,mm}'
+      sss.resource = 'AUIPlayerScenes/AUIShortPlaylistFeeds/Resources/AUIShortPlaylistFeeds.bundle'
       sss.dependency 'AUIPlayer/AUIPlayerKits/AUIShortVideoList'
-      sss.prefix_header_contents = '#import "AUIShortDramaFeeds.h"'
+      sss.prefix_header_contents = '#import "AUIShortPlaylistFeeds.h"'
     end
   end
   

@@ -151,9 +151,9 @@
     [self.videoListController destroy];
     
     [self.videoInfoList removeAllObjects];
-
+            
     self.playIndex = 0;
-    
+            
     self.selectedTrackBitrate = 0;
     
     // 默认完播后自动滑到下一集
@@ -219,9 +219,6 @@
     // 注册监听器
     [self registerObservers];
     
-    // 初始化 PiP SampleBufferDisplayLayer（自管播控，适合自研/第三方解码）
-    [self setupSampleBufferPiPController];
-    
     // 隐藏头部视图，并设置内容视图和集合视图的大小
     self.headerView.hidden = YES;
     self.contentView.frame = self.view.bounds;
@@ -253,7 +250,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     SLOGI(@"viewDidAppear");
-    
+    // 初始化 PiP SampleBufferDisplayLayer（自管播控，适合自研/第三方解码）
+    [self setupSampleBufferPiPController];
     [self pageSelect:self.playIndex];
 }
 
@@ -263,7 +261,6 @@
     SLOGI(@"viewDidDisappear");
     
     [self unbind:self.playIndex];
-    [self clear];
 }
 
 // 当视图控制器即将移动到父视图控制器时调用
@@ -366,10 +363,14 @@
             // FIXME: 为了遮挡pipView 在无封面图下，出现画面
             self.collectionView.backgroundColor = [UIColor blackColor];
             
-            self.pipView = [[UIView alloc] initWithFrame:self.view.bounds];
+            if (!self.pipView) {
+                self.pipView = [[UIView alloc] initWithFrame:self.view.bounds];
+            }
 
-            // 创建 DisplayLayer 显示层
-            self.pipDisplayLayer = [AVSampleBufferDisplayLayer layer];
+            if (!self.pipDisplayLayer){
+                // 创建 DisplayLayer 显示层
+                self.pipDisplayLayer = [AVSampleBufferDisplayLayer layer];
+            }
 
             // 设置小窗原始 Frame 大小
             CGFloat screenWidth =  [UIScreen mainScreen].bounds.size.width;
@@ -402,17 +403,20 @@
             
             [self.pipView.layer addSublayer:self.pipDisplayLayer];
             [self.contentView insertSubview:self.pipView belowSubview:self.collectionView];
+          
+            if (!self.pipController){
+                // 创建 ContentSource：使用 SampleBufferDisplayLayer + playback delegate（接管播控）
+                AVPictureInPictureControllerContentSource *source = [[AVPictureInPictureControllerContentSource alloc] initWithSampleBufferDisplayLayer:self.pipDisplayLayer playbackDelegate:self];
+                
+                // 实例化 PiP 控制器
+                self.pipController = [[AVPictureInPictureController alloc] initWithContentSource:source];
+                self.pipController.delegate = self;
+                self.pipController.canStartPictureInPictureAutomaticallyFromInline = YES;
+                
+                // 配置播放模式：NO 表示允许用户在 PiP UI 上快进/快退
+                self.pipController.requiresLinearPlayback = NO;
+            }
             
-            // 创建 ContentSource：使用 SampleBufferDisplayLayer + playback delegate（接管播控）
-            AVPictureInPictureControllerContentSource *source = [[AVPictureInPictureControllerContentSource alloc] initWithSampleBufferDisplayLayer:self.pipDisplayLayer playbackDelegate:self];
-            
-            // 实例化 PiP 控制器
-            self.pipController = [[AVPictureInPictureController alloc] initWithContentSource:source];
-            self.pipController.delegate = self;
-            self.pipController.canStartPictureInPictureAutomaticallyFromInline = YES;
-            
-            // 配置播放模式：NO 表示允许用户在 PiP UI 上快进/快退
-            self.pipController.requiresLinearPlayback = NO;
             
             NSLog(@"[PiP] SampleBuffer PiP controller initialized successfully.");
         } else {
@@ -619,7 +623,7 @@
 
 // 播放指定索引的视频
 - (void)pageSelect:(NSInteger)index {
-    SLOGI(@"[---------PAGE_SELECT---------][%ld->%ld], isPipPaused: %@", self.playIndex, index, self.isPipPaused ? @"YES" : @"NO");
+    SLOGI(@"[---------PAGE_SELECT---------][%@][%ld->%ld], isPipPaused: %@",self, self.playIndex, index, self.isPipPaused ? @"YES" : @"NO");
     
     // 更新浮标
     self.playIndex = index;
@@ -682,7 +686,7 @@
     }
     
     // 移动到下一个视频
-    [self moveToIndex:(self.playIndex + 1) animate:!self.isBackground];
+    [self moveToIndex:(self.playIndex + 1) animate:self.isBackground];
 }
 
 #pragma mark - Data Source
@@ -716,6 +720,7 @@
 
 // 根据索引位置索引对应的视频信息
 - (AUIShortVideoInfo *)getVideoInfoAtIndex:(NSInteger)index {
+    NSLog(@"[getVideoInfoAtIndex] %ld",index);
     if (index < 0 || index >= [self.videoInfoList count]) {
         return nil;
     }
@@ -1015,15 +1020,15 @@
     AUIShortVideoInfo *videoInfo = [self.videoInfoList objectAtIndex:indexPath.row];
     
     // 检查 videoInfo 是否有效
-    if (!videoInfo || !videoInfo.url) {
+    if (!videoInfo || !videoInfo.videoId || !videoInfo.playAuth) {
         return nil; // 若视频信息无效，返回 nil
     }
-    if (!videoInfo.type) {
+    if (!videoInfo.videoType) {
         return [self buildPlayCell:indexPath pageIndex:indexPath.row videoInfo:videoInfo];; // 若视频信息没有type，默认为video
     }
     
     // 根据视频信息的类型判断创建哪种 cell
-    if ([videoInfo.type isEqualToString:AVCollectionViewCellAdvertisement]) {
+    if ([videoInfo.videoType isEqualToString:AVCollectionViewCellAdvertisement]) {
         return [self buildAdvertisementCell:indexPath];
     } else {
         return [self buildPlayCell:indexPath pageIndex:indexPath.row videoInfo:videoInfo];
@@ -1163,9 +1168,7 @@
     
     // 创建弱引用，以避免循环引用f
     __weak typeof(self) weakSelf = self;
-    [AUIShortVideoListDataManager requestVideoInfoList:AUIShortVideoListConstants.defaultVideoInfoListURL completed:^(NSArray<AUIShortVideoInfo *> * _Nullable data,
-                                                                                                                      NSError * _Nullable error) {
-        // 获取强引用以避免过早释放 self
+    [AUIShortVideoListDataManager requestDefaultPlayList:^(NSArray<AUIShortVideoInfo *> * _Nullable data, NSError * _Nullable error) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [loading hideAnimated:YES];
         
@@ -1182,7 +1185,7 @@
         // 确认新数据非空且有内容
         if (!data || data.count == 0) {
             dispatch_async(dispatch_get_main_queue(),
- ^{
+                           ^{
                 // 在主线程显示错误提示
                 [AVToastView show:AVGetString(@"Failed to load data, data is empty!",
                                               @"AUIShortVideoList")
@@ -1191,8 +1194,8 @@
             });
             return;
         }
-
-        // 确保 data 非空，然后添加到 dramaInfoList
+        
+        // 确保 data 非空，然后添加到 playlistInfoList
         [strongSelf.videoInfoList addObjectsFromArray:data];
         
         // 调用相应子视图控制器的 appendVideoInfoList: 方法
@@ -1201,7 +1204,6 @@
         }
     }];
 }
-
 
 // 基于 CMSampleBuffer 的 PiP 场景，需外部提供视频帧
 #pragma mark - AVPictureInPictureSampleBufferPlaybackDelegate

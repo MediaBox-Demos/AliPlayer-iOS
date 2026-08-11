@@ -79,7 +79,7 @@
         if (videoInfoList){
             NSMutableArray<AUIShortVideoInfo*>* array =[[NSMutableArray alloc]init];
             for (AUIShortVideoInfo* info in videoInfoList) {
-                if (![info.type isEqualToString:@"advertisement"]){
+                if (![info.videoType isEqualToString:@"advertisement"]){
                     [array addObject:info];
                 }
                 _videoInfoList = [array copy];

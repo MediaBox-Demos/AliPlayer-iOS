@@ -368,4 +368,4 @@ for dict in responseArray ?? [:] {
 
 ## **3. 搭建场景**
 
-AUIShortVideoList 组件支持低代码集成，适用于多种场景。您可以基于此组件构建短视频列表的场景化功能。请参考 AUIPlayerScenes 中的示例及文档，例如 AUIShortDramaList（短剧剧场场景化模块）和 AUIShortDramaFeeds（短剧 Feeds 流场景化模块）。
+AUIShortVideoList 组件支持低代码集成，适用于多种场景。您可以基于此组件构建短视频列表的场景化功能。请参考 AUIPlayerScenes 中的示例及文档，例如 AUIShortPlaylistTheater（短剧剧场场景化模块）和 AUIShortPlaylistFeeds（短剧 Feeds 流场景化模块）。

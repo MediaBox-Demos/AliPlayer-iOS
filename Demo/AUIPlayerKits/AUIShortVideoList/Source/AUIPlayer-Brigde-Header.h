@@ -20,8 +20,8 @@
  *  在 Pod 文件中修改 SWIFT_OBJC_BRIDGING_HEADER 的配置，以确保 Swift 能正确访问 Objective-C 的接口：
  *
  *  #import "AUIShortVideoList.h"
- *  #import "AUIShortDramaFeeds.h"
- *  #import "AUIShortDramaList.h"
+ *  #import "AUIShortPlaylistFeeds.h"
+ *  #import "AUIShortPlaylistList.h"
  */
 
 #ifndef AUIPlayer_Bridging_Header_h
@@ -29,7 +29,7 @@
 
 // 在此处引入需要暴露给 Swift 的 Objective-C 头文件
 //#import "AUIShortVideoList.h"
-//#import "AUIShortDramaFeeds.h"
-//#import "AUIShortDramaList.h"
+//#import "AUIShortPlaylistFeeds.h"
+//#import "AUIShortPlaylistList.h"
 
 #endif /* AUIPlayer_Bridging_Header_h */

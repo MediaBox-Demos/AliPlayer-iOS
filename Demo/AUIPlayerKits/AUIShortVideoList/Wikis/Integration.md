@@ -2,6 +2,12 @@
 
 下面介绍 **AUIShortVideoList** 组件的集成方法，帮助您快速将其整合到项目中。
 
+## **⚠️说明**
+
+为实现完整的全链路短剧解决方案，AUIShortVideoList 组件需与我们提供的 [VodAppServer](https://github.com/MediaBox-Demos/VodAppServer)（基于 Spring Boot 的阿里云视频点播 VOD 短剧管理平台后端服务）配套使用。VodAppServer 提供短剧内容管理、播放地址分发、鉴权控制等关键能力。
+
+客户端与服务端的协同能够构建覆盖内容管理、分发到播放的完整全链路能力，使您无需自建后台即可快速搭建可运营的短剧业务体系，从而显著缩短上线周期、降低研发成本，并确保内容运营与播放体验在前后端之间高效一致。
+
 ## **前置条件**
 
 您已获取音视频终端 SDK 的播放器的 License 授权和 License Key。获取方法，请参见[申请License](https://help.aliyun.com/zh/apsara-video-sdk/user-guide/license-authorization-and-management#13133fa053843)。
@@ -23,8 +29,8 @@
 │   └── AUIShortVideoList	// 短视频列表基础播放组件
 ├── AUIPlayerMain	// Demo 首页模块
 ├── AUIPlayerScenes	// 场景化功能模块
-│   ├── AUIShortDramaFeeds	// 短剧剧场场景化功能模块
-│   └── AUIShortDramaList	// 短剧 Feeds 流场景化功能模块
+│   ├── AUIShortPlaylistFeeds	// 短剧剧场场景化功能模块
+│   └── AUIShortPlaylistTheater	// 短剧 Feeds 流场景化功能模块
 ├── AUIPlayerSettings	// Demo 后台设置页
 ├── AUIVideoFlow	// 信息流页
 ├── Example	// Demo 入口

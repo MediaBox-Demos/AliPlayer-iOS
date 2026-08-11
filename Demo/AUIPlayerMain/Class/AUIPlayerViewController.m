@@ -118,12 +118,12 @@
 }
 
 - (void)openShortDramaList {
-    AUIShortDramaListViewController *vc = [[AUIShortDramaListViewController alloc] init];
+    AUIShortTheaterViewController *vc = [[AUIShortTheaterViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)openShortDramaFeeds {
-    AUIShortDramaFeedsViewController *vc = [[AUIShortDramaFeedsViewController alloc] init];
+    AUIShortPlaylistFeedsViewController *vc = [[AUIShortPlaylistFeedsViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -142,16 +142,17 @@
 // 请求额外数据的方法
 - (void)loadData:(id)controller {
     __weak typeof(self) weakSelf = self;  // 弱引用 self
-    [AUIShortVideoListDataManager requestVideoInfoList:AUIShortVideoListConstants.defaultVideoInfoListURL completed:^(NSArray<AUIShortVideoInfo *> * _Nullable data, NSError * _Nullable error) {
+    [AUIShortVideoListDataManager requestDefaultPlayList:^(NSArray<AUIShortVideoInfo *> * _Nullable data,
+                                                           NSError * _Nullable error) {
         if (error) {
             __strong typeof(weakSelf) strongSelf = weakSelf; // 强引用 self
-            [AVToastView show:[NSString stringWithFormat:@"Unable to retrieve short video list, error: %@", error.localizedDescription]
+            [AVToastView show:[NSString stringWithFormat:@"Unable to retrieve short video list, error: %@",
+                               error.localizedDescription]
                          view:strongSelf.view
                      position:AVToastViewPositionMid];
             return;
         }
         
-        // 调用相应子视图控制器的 appendVideoInfoList: 方法
         if (controller && [controller respondsToSelector:@selector(appendVideoInfoList:)]) {
             [controller appendVideoInfoList:data];
         }
@@ -160,16 +161,17 @@
 
 - (void)refreshData:(id)controller{
     __weak typeof(self) weakSelf = self;  // 弱引用 self
-    [AUIShortVideoListDataManager requestVideoInfoList:AUIShortVideoListConstants.defaultVideoInfoListURL completed:^(NSArray<AUIShortVideoInfo *> * _Nullable data, NSError * _Nullable error) {
+    [AUIShortVideoListDataManager requestDefaultPlayList:^(NSArray<AUIShortVideoInfo *> * _Nullable data,
+                                                           NSError * _Nullable error) {
         if (error) {
             __strong typeof(weakSelf) strongSelf = weakSelf; // 强引用 self
-            [AVToastView show:[NSString stringWithFormat:@"Unable to retrieve short video list, error: %@", error.localizedDescription]
+            [AVToastView show:[NSString stringWithFormat:@"Unable to retrieve short video list, error: %@",
+                               error.localizedDescription]
                          view:strongSelf.view
                      position:AVToastViewPositionMid];
             return;
         }
         
-        // 调用相应子视图控制器的 appendVideoInfoList: 方法
         if (controller && [controller respondsToSelector:@selector(resetVideoInfoList:)]) {
             [controller resetVideoInfoList:data];
         }

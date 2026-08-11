@@ -16,14 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface AUIShortVideoListConstants : NSObject
 
-#pragma mark - VideoInfoListURL
-
-/**
- * @brief 默认视频信息列表的 URL - 网络视频源（默认）
- */
-@property (class, nonatomic, readonly) NSString *defaultVideoInfoListURL;
-
-
 #pragma mark - PlayerPoolCapacity
 
 /**

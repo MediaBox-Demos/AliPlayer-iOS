@@ -7,7 +7,7 @@ platform :ios, '9.0'
 def aliyun_uicom
   # 选取的SDK类型
   # 播放器SDK及版本，建议使用最新版本，详情参考官网：https://help.aliyun.com/zh/vod/developer-reference/release-notes-for-apsaravideo-player-sdk-for-ios
-  pod 'AliPlayerSDK_iOS', '~> 7.15.0'
+  pod 'AliPlayerSDK_iOS', '~> 7.16.0'
   
   pod "AUIPlayer/AliPlayerSDK_iOS", :path => "../"
   # 您可以根据自己的业务去调整使用的SDK，增加自己要使用的SDK；或者修改 AUIPlayer.podspec 中 AliPlayerSDK_iOS 版本
@@ -28,9 +28,9 @@ def aliyun_uicom
   # 短剧场景（包含剧场/Feed流）两个模块，可单独集成。
   pod "AUIPlayer/AUIPlayerScenes", :path => "../"
   # 短剧剧场场景
-#  pod "AUIPlayer/AUIPlayerScenes/AUIShortDramaList", :path => "../"
+#  pod "AUIPlayer/AUIPlayerScenes/AUIShortPlaylistList", :path => "../"
   # 短剧Feeds流场景
-#  pod "AUIPlayer/AUIPlayerScenes/AUIShortDramaFeeds", :path => "../"
+#  pod "AUIPlayer/AUIPlayerScenes/AUIShortPlaylistFeeds", :path => "../"
   
   #后台设置页
   pod "AUIPlayer/AUIPlayerSettings", :path => "../"

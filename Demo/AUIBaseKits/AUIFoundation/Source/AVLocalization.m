@@ -30,17 +30,7 @@
     }
     
     NSString *path = [NSBundle.mainBundle.resourcePath stringByAppendingPathComponent:[module stringByAppendingString:@".bundle/Localization"]];
-    NSArray *preferredLanguages = [NSLocale preferredLanguages];
-    if ([preferredLanguages.firstObject hasPrefix:@"zh-Hans"]) {
-        bundle = [NSBundle bundleWithPath:[path stringByAppendingPathComponent:@"zh-Hans.lproj"]];
-    }
-    else {
-        bundle = [NSBundle bundleWithPath:[path stringByAppendingPathComponent:@"en.lproj"]];
-    }
-    
-    if (!bundle) {
-        bundle = [NSBundle bundleWithPath:path];
-    }
+    bundle = [NSBundle bundleWithPath:path];
     [self.moduleBundleMap setObject:bundle forKey:module];
     return bundle;
 }

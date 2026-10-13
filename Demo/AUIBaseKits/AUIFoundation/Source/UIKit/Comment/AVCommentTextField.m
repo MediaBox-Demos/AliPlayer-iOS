@@ -79,7 +79,7 @@
 
 - (void)refreshCommentPlaceHolder {
     if (self.commentState == AVCommentStateMute) {
-        self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:AUIFoundationLocalizedString(@"Muted")
+        self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"已禁言"
                                                                      attributes:@{
                                   NSForegroundColorAttributeName:self.placeHolderColorForDisable,
                                   NSFontAttributeName:AVGetRegularFont(12)
@@ -87,7 +87,7 @@
         self.enabled = NO;
     }
     else {
-        self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:AUIFoundationLocalizedString(@"Say something~")
+        self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"说些什么吧~"
                                                                      attributes:@{
                                   NSForegroundColorAttributeName:self.placeHolderColorForNormal,
                                   NSFontAttributeName:AVGetRegularFont(12)

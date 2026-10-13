@@ -50,15 +50,15 @@
 - (void)setStatus:(AVNetworkStatus)status {
     _status = status;
     if (_status == AVNetworkStatusFluent) {
-        self.statusLabel.text = AUIFoundationLocalizedString(@"Network is good");
+        self.statusLabel.text = @"网络良好";
         self.flagView.backgroundColor = [UIColor av_colorWithHexString:@"#3BB346" alpha:1.0];
     }
     else if (_status == AVNetworkStatusStuttering) {
-        self.statusLabel.text = AUIFoundationLocalizedString(@"Network is poor");
+        self.statusLabel.text = @"网络不佳";
         self.flagView.backgroundColor = [UIColor av_colorWithHexString:@"#FFC422" alpha:1.0];
     }
     else if (_status == AVNetworkStatusBrokenOff) {
-        self.statusLabel.text = AUIFoundationLocalizedString(@"Network error");
+        self.statusLabel.text = @"网络异常";
         self.flagView.backgroundColor = [UIColor av_colorWithHexString:@"#F53F3F" alpha:1.0];
     }
 }

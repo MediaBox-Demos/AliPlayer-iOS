@@ -19,7 +19,6 @@ typedef NS_ENUM(NSUInteger, AVToastViewPosition) {
 
 @property (nonatomic, strong, readonly) UILabel *toastLabel;
 
-- (void)show:(NSString *)toast view:(UIView *)view position:(AVToastViewPosition)position;
 
 + (AVToastView *)show:(NSString *)toast view:(UIView *)view position:(AVToastViewPosition)position;
 
